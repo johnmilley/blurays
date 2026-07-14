@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>shelf</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icons/icon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#18181a" />
+    <script type="module" src="./js/main.js" defer></script>
+  </head>
+
+  <body>
+    <header id="titlebar" data-tauri-drag-region>
+      <span id="titlebar-title" data-tauri-drag-region>shelf</span>
+      <span id="titlebar-buttons" hidden>
+        <button id="tb-min" title="Minimize" tabindex="-1">&#x2013;</button>
+        <button id="tb-max" title="Maximize" tabindex="-1">&#x25A1;</button>
+        <button id="tb-close" title="Close" tabindex="-1">&#x2715;</button>
+      </span>
+    </header>
+
+    <div id="toolbar">
+      <input id="search" type="search" placeholder="search titles…" autocomplete="off" />
+
+      <div id="format-chips" class="chips" role="group" aria-label="Format filter">
+        <button class="chip selected" data-format="all">all</button>
+        <button class="chip" data-format="4K">4k</button>
+        <button class="chip" data-format="Blu-ray">blu-ray</button>
+        <button class="chip" data-format="DVD">dvd</button>
+      </div>
+
+      <div class="chips" role="group" aria-label="Watched filter">
+        <button class="chip selected" data-watched="all">all</button>
+        <button class="chip" data-watched="unwatched">unwatched</button>
+        <button class="chip" data-watched="watched">watched</button>
+      </div>
+
+      <select id="sort" title="Sort order">
+        <option value="title">title</option>
+        <option value="year">year</option>
+        <option value="added">recently added</option>
+      </select>
+
+      <span class="toolbar-spring"></span>
+
+      <button id="btn-view" class="tool" title="Toggle grid / list view">list</button>
+      <button id="btn-scan" class="tool" title="Scan a barcode" hidden>scan</button>
+      <button id="btn-night" class="tool" title="Pick a random unwatched movie">movie night</button>
+      <button id="btn-add" class="tool accent" title="Add a movie (n)">+ add</button>
+      <button id="btn-menu" class="tool" title="Import / export / settings">&#x22EF;</button>
+      <button id="btn-theme" class="tool" title="Toggle dark / light theme">&#x25D0;</button>
+    </div>
+
+    <main id="collection">
+      <div id="grid" hidden></div>
+      <div id="list" hidden></div>
+      <div id="empty" class="panel-empty" hidden>
+        <p>Nothing here yet.</p>
+        <p><button id="btn-add-empty" class="tool accent">+ add your first movie</button></p>
+      </div>
+    </main>
+
+    <footer id="statusbar">
+      <span id="status-counts"></span>
+      <span id="status-msg"></span>
+    </footer>
+
+    <!-- add / edit movie -->
+    <dialog id="dlg-movie">
+      <form id="movie-form" method="dialog">
+        <div class="dlg-head">
+          <span class="panel-label" id="dlg-movie-title">add movie</span>
+          <button type="button" class="dlg-close" data-close>&#x2715;</button>
+        </div>
+
+        <div class="field-row">
+          <label class="field grow">
+            <span>barcode</span>
+            <span class="joined">
+              <input name="barcode" inputmode="numeric" autocomplete="off" placeholder="scan or type UPC / EAN" />
+              <button type="button" id="btn-lookup" class="tool">lookup</button>
+              <button type="button" id="btn-scan-inline" class="tool" hidden>scan</button>
+            </span>
+          </label>
+        </div>
+
+        <div id="lookup-status" hidden></div>
+        <div id="tmdb-candidates" hidden></div>
+
+        <div class="field-row">
+          <label class="field grow">
+            <span>title</span>
+            <input name="title" required autocomplete="off" />
+          </label>
+          <label class="field w-year">
+            <span>year</span>
+            <input name="year" inputmode="numeric" pattern="\d{4}" autocomplete="off" />
+          </label>
+          <label class="field">
+            <span>format</span>
+            <select name="format">
+              <option value="Blu-ray">blu-ray</option>
+              <option value="4K">4k</option>
+              <option value="DVD">dvd</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="field-row">
+          <label class="field grow">
+            <span>director</span>
+            <input name="director" autocomplete="off" />
+          </label>
+          <label class="field w-year">
+            <span>runtime (min)</span>
+            <input name="runtime" inputmode="numeric" autocomplete="off" />
+          </label>
+        </div>
+
+        <div class="field-row">
+          <label class="field grow">
+            <span>poster url</span>
+            <input name="poster" autocomplete="off" placeholder="https://…" />
+          </label>
+        </div>
+
+        <div class="field-row">
+          <label class="field grow">
+            <span>notes</span>
+            <textarea name="notes" rows="3" placeholder="steelbook, disc 2 missing, lent to…"></textarea>
+          </label>
+        </div>
+
+        <div class="field-row">
+          <label class="check">
+            <input type="checkbox" name="watched" /> <span>watched</span>
+          </label>
+        </div>
+
+        <div class="dlg-actions">
+          <button type="button" id="btn-delete" class="tool danger" hidden>delete</button>
+          <span class="toolbar-spring"></span>
+          <button type="button" class="tool" data-close>cancel</button>
+          <button type="submit" class="tool accent" id="btn-save">save</button>
+        </div>
+      </form>
+    </dialog>
+
+    <!-- barcode scanner -->
+    <dialog id="dlg-scan">
+      <div class="dlg-head">
+        <span class="panel-label">scan barcode</span>
+        <button type="button" class="dlg-close" data-close>&#x2715;</button>
+      </div>
+      <div id="scan-stage">
+        <video id="scan-video" playsinline muted></video>
+        <div id="scan-reticle"></div>
+      </div>
+      <p id="scan-hint" class="muted">point the camera at the barcode on the back of the case</p>
+    </dialog>
+
+    <!-- scan result -->
+    <dialog id="dlg-scan-result">
+      <div class="dlg-head">
+        <span class="panel-label" id="scan-result-label"></span>
+        <button type="button" class="dlg-close" data-close>&#x2715;</button>
+      </div>
+      <div id="scan-result-body"></div>
+      <div class="dlg-actions">
+        <button type="button" class="tool" id="btn-scan-again">scan another</button>
+        <span class="toolbar-spring"></span>
+        <button type="button" class="tool accent" id="btn-scan-add" hidden>+ add it</button>
+        <button type="button" class="tool" data-close>done</button>
+      </div>
+    </dialog>
+
+    <!-- movie night -->
+    <dialog id="dlg-night">
+      <div class="dlg-head">
+        <span class="panel-label">movie night</span>
+        <button type="button" class="dlg-close" data-close>&#x2715;</button>
+      </div>
+      <div id="night-stage">
+        <div id="night-poster"></div>
+        <div id="night-title"></div>
+        <div id="night-meta" class="muted"></div>
+      </div>
+      <div class="dlg-actions">
+        <button type="button" id="btn-night-again" class="tool">pick again</button>
+        <span class="toolbar-spring"></span>
+        <button type="button" id="btn-night-watched" class="tool" hidden>mark watched</button>
+        <button type="button" class="tool accent" data-close>that's the one</button>
+      </div>
+    </dialog>
+
+    <!-- menu: import / export / settings -->
+    <dialog id="dlg-menu">
+      <div class="dlg-head">
+        <span class="panel-label">shelf</span>
+        <button type="button" class="dlg-close" data-close>&#x2715;</button>
+      </div>
+
+      <div class="menu-section">
+        <span class="panel-label">collection</span>
+        <div class="dlg-actions">
+          <button type="button" id="btn-export" class="tool">export json</button>
+          <button type="button" id="btn-import" class="tool">import json</button>
+          <input type="file" id="import-file" accept=".json,application/json" hidden />
+        </div>
+        <p class="muted">export on the desktop, import on your phone (or the reverse) to sync.</p>
+      </div>
+
+      <div class="menu-section">
+        <span class="panel-label">tmdb api key <span class="muted">(optional — enables posters &amp; details)</span></span>
+        <span class="joined">
+          <input id="tmdb-key" autocomplete="off" placeholder="paste your themoviedb.org api key" />
+          <button type="button" id="btn-save-key" class="tool">save</button>
+        </span>
+      </div>
+
+      <div class="menu-section muted" id="about-line"></div>
+    </dialog>
+
+    <!-- window resize grips (desktop only; no native decorations) -->
+    <div class="grip" data-dir="North" hidden></div>
+    <div class="grip" data-dir="South" hidden></div>
+    <div class="grip" data-dir="East" hidden></div>
+    <div class="grip" data-dir="West" hidden></div>
+    <div class="grip" data-dir="NorthEast" hidden></div>
+    <div class="grip" data-dir="NorthWest" hidden></div>
+    <div class="grip" data-dir="SouthEast" hidden></div>
+    <div class="grip" data-dir="SouthWest" hidden></div>
+  </body>
+</html>
