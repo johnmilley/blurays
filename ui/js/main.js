@@ -1,6 +1,16 @@
 import { initTheme, toggleTheme } from "./theme.js";
 import * as store from "./store.js";
-import { lookupBarcode, searchTmdb, tmdbDetails, cleanTitle, guessFormat } from "./lookup.js";
+import {
+  lookupBarcode,
+  searchBluray,
+  searchTmdb,
+  tmdbDetails,
+  tmdbKey,
+  testTmdbKey,
+  cleanTitle,
+  guessFormat,
+  normalizeBarcode,
+} from "./lookup.js";
 import { scanSupported, startScan, stopScan } from "./scan.js";
 import { renderGrid, renderList, posterEl } from "./views.js";
 
@@ -35,6 +45,14 @@ function closeDialog(node) {
   node.closest("dialog")?.close();
 }
 
+function findByBarcode(code, excludeId) {
+  const norm = normalizeBarcode(code);
+  if (!norm) return null;
+  return (
+    movies.find((m) => normalizeBarcode(m.barcode) === norm && m.id !== excludeId) ?? null
+  );
+}
+
 async function reload() {
   movies = await store.listMovies();
   render();
@@ -48,7 +66,12 @@ function visibleMovies() {
     if (prefs.format !== "all" && m.format !== prefs.format) return false;
     if (prefs.watched === "watched" && !m.watched) return false;
     if (prefs.watched === "unwatched" && m.watched) return false;
-    if (q && !`${m.title} ${m.director ?? ""} ${m.notes ?? ""}`.toLowerCase().includes(q))
+    if (
+      q &&
+      !`${m.title} ${m.director ?? ""} ${m.genres ?? ""} ${m.notes ?? ""}`
+        .toLowerCase()
+        .includes(q)
+    )
       return false;
     return true;
   });
@@ -99,6 +122,7 @@ async function toggleWatched(movie) {
 
 const dlgMovie = $("#dlg-movie");
 const form = $("#movie-form");
+const FIELDS = ["barcode", "title", "year", "format", "director", "runtime", "genres", "poster", "overview", "notes"];
 
 function openAdd(prefill = {}) {
   editing = null;
@@ -106,9 +130,11 @@ function openAdd(prefill = {}) {
   $("#dlg-movie-title").textContent = "add movie";
   $("#btn-delete").hidden = true;
   clearLookupUi();
+  syncPosterPreview();
   for (const [k, v] of Object.entries(prefill)) {
     if (form.elements[k] && v != null) form.elements[k].value = v;
   }
+  $("#art-query").value = prefill.title ?? "";
   dlgMovie.showModal();
   if (!prefill.title) form.elements.barcode.focus();
 }
@@ -119,11 +145,11 @@ function openEdit(movie) {
   $("#dlg-movie-title").textContent = "edit movie";
   $("#btn-delete").hidden = false;
   clearLookupUi();
-  for (const k of ["barcode", "title", "year", "format", "director", "runtime", "poster", "notes"]) {
-    form.elements[k].value = movie[k] ?? "";
-  }
+  for (const k of FIELDS) form.elements[k].value = movie[k] ?? "";
   form.elements.format.value = movie.format || "Blu-ray";
   form.elements.watched.checked = !!movie.watched;
+  $("#art-query").value = movie.title ?? "";
+  syncPosterPreview();
   dlgMovie.showModal();
 }
 
@@ -137,11 +163,21 @@ function formToMovie() {
     format: f.format.value,
     director: f.director.value.trim() || null,
     runtime: f.runtime.value ? Number(f.runtime.value) : null,
+    genres: f.genres.value.trim() || null,
     poster: f.poster.value.trim() || null,
+    overview: f.overview.value.trim() || null,
     notes: f.notes.value.trim(),
     watched: f.watched.checked,
   };
 }
+
+function syncPosterPreview() {
+  const url = form.elements.poster.value.trim();
+  const img = $("#poster-preview");
+  img.hidden = !url;
+  if (url) img.src = url;
+}
+form.elements.poster.addEventListener("input", syncPosterPreview);
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -175,12 +211,24 @@ form.elements.barcode.addEventListener("keydown", (e) => {
   }
 });
 $("#btn-lookup").addEventListener("click", runLookup);
+$("#btn-art-search").addEventListener("click", () => runArtSearch());
+$("#art-query").addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    runArtSearch();
+  }
+});
+
+// ------------------------------------------------- lookup & art search
 
 function clearLookupUi() {
   $("#lookup-status").hidden = true;
   $("#lookup-status").classList.remove("error");
-  $("#tmdb-candidates").hidden = true;
-  $("#tmdb-candidates").replaceChildren();
+  $("#art-results").hidden = true;
+  $("#group-bluray").hidden = true;
+  $("#group-tmdb").hidden = true;
+  $("#cands-bluray").replaceChildren();
+  $("#cands-tmdb").replaceChildren();
 }
 
 function lookupStatus(text, isError = false) {
@@ -195,7 +243,7 @@ async function runLookup() {
   if (!code) return;
   clearLookupUi();
 
-  const existing = movies.find((m) => m.barcode === code && m.id !== editing?.id);
+  const existing = findByBarcode(code, editing?.id);
   if (existing) {
     lookupStatus(`already in your collection: “${existing.title}”`);
     return;
@@ -211,46 +259,121 @@ async function runLookup() {
       if (hit.format) form.elements.format.value = hit.format;
       lookupStatus(`found: ${hit.title}`);
     } else {
-      lookupStatus("barcode not in the product database — fill in details manually", true);
+      lookupStatus("barcode not in the product database — type the title and hit search", true);
     }
   } catch (err) {
     lookupStatus(err.message, true);
   }
 
-  await showTmdbCandidates(title || form.elements.title.value.trim());
+  const q = title || form.elements.title.value.trim();
+  if (q) {
+    $("#art-query").value = q;
+    await runArtSearch(true);
+  } else {
+    $("#art-query").focus();
+  }
 }
 
-async function showTmdbCandidates(queryTitle) {
-  if (!queryTitle) return;
-  let candidates;
-  try {
-    candidates = await searchTmdb(queryTitle);
-  } catch (err) {
-    lookupStatus(err.message, true);
-    return;
-  }
-  if (!candidates.length) return;
+/** Search blu-ray.com (box art) and TMDB (posters + details) in parallel
+ * and render both candidate strips. */
+async function runArtSearch(keepStatus = false) {
+  const q = $("#art-query").value.trim() || form.elements.title.value.trim();
+  if (!q) return;
+  if (!keepStatus) clearLookupUi();
+  $("#art-results").hidden = false;
 
-  const wrap = $("#tmdb-candidates");
-  wrap.hidden = false;
+  const notes = [];
+  const [bd, tmdb] = await Promise.allSettled([
+    searchBluray(q, form.elements.format.value),
+    searchTmdb(q, form.elements.year.value || undefined),
+  ]);
+
+  if (bd.status === "fulfilled" && bd.value.length) {
+    renderBlurayCandidates(bd.value);
+  } else if (bd.status === "rejected") {
+    notes.push(bd.reason.message);
+  } else {
+    notes.push("no box art matches on blu-ray.com");
+  }
+
+  if (tmdb.status === "fulfilled" && tmdb.value.length) {
+    renderTmdbCandidates(tmdb.value);
+  } else if (tmdb.status === "rejected") {
+    notes.push(tmdb.reason.message);
+  } else if (!(await tmdbKey())) {
+    notes.push("no tmdb key — posters & details disabled (add one in the ⋯ menu)");
+  } else {
+    notes.push("no tmdb matches");
+  }
+
+  if (notes.length && !keepStatus) lookupStatus(notes.join(" · "), false);
+  else if (notes.length) lookupStatus(($("#lookup-status").textContent + " · " + notes.join(" · ")).trim());
+}
+
+function candidateNode(art, lines, onPick) {
+  const node = document.createElement("div");
+  node.className = "candidate";
+  node.append(posterEl(art));
+  for (const line of lines) {
+    const span = document.createElement("span");
+    span.textContent = line;
+    span.title = line;
+    node.append(span);
+  }
+  node.addEventListener("click", () => {
+    node.parentElement.querySelector(".selected")?.classList.remove("selected");
+    node.classList.add("selected");
+    onPick();
+  });
+  return node;
+}
+
+function renderBlurayCandidates(results) {
+  $("#group-bluray").hidden = false;
+  const wrap = $("#cands-bluray");
   wrap.replaceChildren();
-  for (const c of candidates) {
-    const node = document.createElement("div");
-    node.className = "candidate";
-    node.append(posterEl({ poster: c.poster, title: c.title }));
-    const label = document.createElement("span");
-    label.textContent = c.year ? `${c.title} (${c.year})` : c.title;
-    node.append(label);
-    node.addEventListener("click", async () => {
-      wrap.querySelector(".selected")?.classList.remove("selected");
-      node.classList.add("selected");
-      form.elements.title.value = c.title;
-      if (c.year) form.elements.year.value = c.year;
-      if (c.poster) form.elements.poster.value = c.poster;
-      const extra = await tmdbDetails(c.tmdbId);
-      if (extra.director) form.elements.director.value = extra.director;
-      if (extra.runtime) form.elements.runtime.value = extra.runtime;
-    });
+  for (const r of results.slice(0, 12)) {
+    const node = candidateNode(
+      { poster: r.cover, title: r.title },
+      [r.title, [r.country, r.released].filter(Boolean).join(" · ")],
+      () => {
+        form.elements.poster.value = r.coverFull;
+        syncPosterPreview();
+        const fmt = guessFormat(r.title);
+        if (fmt) form.elements.format.value = fmt;
+        if (!form.elements.title.value) {
+          form.elements.title.value = cleanTitle(r.title).replace(/\s*\(\d{4}\)\s*$/, "");
+        }
+      },
+    );
+    wrap.append(node);
+  }
+}
+
+function renderTmdbCandidates(results) {
+  $("#group-tmdb").hidden = false;
+  const wrap = $("#cands-tmdb");
+  wrap.replaceChildren();
+  for (const c of results) {
+    const node = candidateNode(
+      { poster: c.poster, title: c.title },
+      [c.year ? `${c.title} (${c.year})` : c.title],
+      async () => {
+        form.elements.title.value = c.title;
+        if (c.year) form.elements.year.value = c.year;
+        // only take the theatrical poster if no box art was chosen
+        if (c.poster && !form.elements.poster.value) {
+          form.elements.poster.value = c.poster;
+          syncPosterPreview();
+        }
+        if (c.overview && !form.elements.overview.value) form.elements.overview.value = c.overview;
+        const extra = await tmdbDetails(c.tmdbId);
+        if (extra.director) form.elements.director.value = extra.director;
+        if (extra.runtime) form.elements.runtime.value = extra.runtime;
+        if (extra.genres) form.elements.genres.value = extra.genres;
+        if (extra.overview) form.elements.overview.value = extra.overview;
+      },
+    );
     wrap.append(node);
   }
 }
@@ -270,7 +393,7 @@ async function beginScan(target) {
     code = await startScan(video);
   } catch {
     dlgScan.close();
-    toast("camera unavailable", true);
+    toast("camera unavailable — on iPhone this needs https and camera permission", true);
     return;
   }
   dlgScan.close();
@@ -287,7 +410,7 @@ async function beginScan(target) {
 dlgScan.addEventListener("close", () => stopScan(video));
 
 function showScanResult(code) {
-  const owned = movies.find((m) => m.barcode === code);
+  const owned = findByBarcode(code);
   const body = $("#scan-result-body");
   body.replaceChildren();
 
@@ -297,13 +420,15 @@ function showScanResult(code) {
     $("#scan-result-label").textContent = "you have this";
     card.append(posterEl(owned));
     const info = document.createElement("div");
-    info.innerHTML = `<div class="scan-owned">✓ in your collection</div>`;
+    const own = document.createElement("div");
+    own.className = "scan-owned";
+    own.textContent = "✓ in your collection";
     const t = document.createElement("div");
     t.textContent = `${owned.title}${owned.year ? ` (${owned.year})` : ""} — ${owned.format}`;
     const w = document.createElement("div");
     w.className = "muted";
     w.textContent = owned.watched ? "watched" : "unwatched";
-    info.append(t, w);
+    info.append(own, t, w);
     if (owned.notes) {
       const n = document.createElement("div");
       n.className = "muted";
@@ -452,6 +577,71 @@ async function finishImport(text) {
   }
 }
 
+// -------------------------------------------------- bulk enrichment
+
+/** Fill in missing posters/details across the collection: box art from
+ * blu-ray.com, details from TMDB, first plausible match wins. */
+async function fetchMissing() {
+  const targets = movies.filter((m) => !m.poster || !m.director || !m.genres);
+  if (!targets.length) {
+    toast("nothing missing — the shelf is fully dressed");
+    return;
+  }
+  const btn = $("#btn-fetch-missing");
+  btn.disabled = true;
+  let touched = 0;
+  try {
+    for (let i = 0; i < targets.length; i++) {
+      const m = targets[i];
+      toast(`fetching ${i + 1}/${targets.length}: ${m.title}…`);
+      let changed = false;
+
+      if (!m.poster) {
+        try {
+          const covers = await searchBluray(m.title, m.format);
+          const best =
+            covers.find((c) => c.format === m.format) ?? covers[0] ?? null;
+          if (best) {
+            m.poster = best.coverFull;
+            changed = true;
+          }
+        } catch {
+          // blu-ray.com down/blocked — TMDB below may still cover us
+        }
+      }
+
+      if (!m.director || !m.genres || !m.poster) {
+        try {
+          const hits = await searchTmdb(m.title, m.year ?? undefined);
+          const hit =
+            hits.find((h) => !m.year || h.year === m.year) ?? hits[0] ?? null;
+          if (hit) {
+            const extra = await tmdbDetails(hit.tmdbId);
+            if (!m.poster && hit.poster) (m.poster = hit.poster), (changed = true);
+            if (!m.year && hit.year) (m.year = hit.year), (changed = true);
+            if (!m.director && extra.director) (m.director = extra.director), (changed = true);
+            if (!m.runtime && extra.runtime) (m.runtime = extra.runtime), (changed = true);
+            if (!m.genres && extra.genres) (m.genres = extra.genres), (changed = true);
+            if (!m.overview && extra.overview) (m.overview = extra.overview), (changed = true);
+          }
+        } catch {
+          // no key / rate limit — keep going with what we have
+        }
+      }
+
+      if (changed) {
+        await store.updateMovie(m);
+        touched++;
+      }
+      await new Promise((r) => setTimeout(r, 350)); // be polite to the sources
+    }
+  } finally {
+    btn.disabled = false;
+  }
+  toast(`updated ${touched} of ${targets.length} movies`);
+  await reload();
+}
+
 // ------------------------------------------------------------ tauri chrome
 
 function initWindowChrome() {
@@ -537,17 +727,40 @@ function initToolbar() {
 
 async function openMenu() {
   $("#tmdb-key").value = (await store.getSetting("tmdb_key")) || "";
+  $("#tmdb-key-status").textContent = "";
   $("#about-line").textContent =
     `shelf · ${store.isTauri ? "desktop" : "pwa"} · ${movies.length} titles`;
   $("#dlg-menu").showModal();
 }
 
+async function saveKey() {
+  const key = $("#tmdb-key").value.trim();
+  await store.setSetting("tmdb_key", key);
+  const status = $("#tmdb-key-status");
+  if (!key) {
+    status.textContent = "key cleared";
+    return;
+  }
+  status.textContent = "checking key…";
+  try {
+    status.textContent = (await testTmdbKey(key))
+      ? "✓ key works — posters & details enabled"
+      : "✗ tmdb rejected that key";
+  } catch {
+    status.textContent = "couldn't reach tmdb to verify (saved anyway)";
+  }
+}
+
 function initMenu() {
   $("#btn-export").addEventListener("click", doExport);
   $("#btn-import").addEventListener("click", doImport);
-  $("#btn-save-key").addEventListener("click", async () => {
-    await store.setSetting("tmdb_key", $("#tmdb-key").value.trim());
-    toast("tmdb key saved");
+  $("#btn-fetch-missing").addEventListener("click", fetchMissing);
+  $("#btn-save-key").addEventListener("click", saveKey);
+  $("#tmdb-key").addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      saveKey();
+    }
   });
 }
 

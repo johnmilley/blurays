@@ -554,25 +554,47 @@ dialog::backdrop {
   color: var(--danger);
 }
 
-#tmdb-candidates {
+#art-results {
+  margin-bottom: 12px;
+}
+
+.art-group {
+  margin-bottom: 10px;
+}
+
+.art-group .panel-label {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.candidates {
   display: flex;
   gap: 8px;
   overflow-x: auto;
-  margin: 0 0 12px;
   padding-bottom: 4px;
+}
+
+#poster-preview {
+  width: 32px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 3px;
+  border: 1px solid var(--border);
+  flex-shrink: 0;
 }
 
 .candidate {
   flex-shrink: 0;
-  width: 74px;
+  width: 84px;
   cursor: pointer;
   text-align: center;
 }
 
 .candidate img,
 .candidate .poster-fallback {
-  width: 74px;
-  height: 111px;
+  width: 84px;
+  height: 112px;
+  font-size: 0.65em;
   object-fit: cover;
   border-radius: 4px;
   border: 1px solid var(--border);

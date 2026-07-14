@@ -19,6 +19,10 @@ pub struct Movie {
     #[serde(default)]
     pub runtime: Option<i32>,
     #[serde(default)]
+    pub genres: Option<String>,
+    #[serde(default)]
+    pub overview: Option<String>,
+    #[serde(default)]
     pub notes: String,
     #[serde(default)]
     pub watched: bool,
@@ -50,7 +54,25 @@ pub fn init(conn: &Connection) -> rusqlite::Result<()> {
             key   TEXT PRIMARY KEY,
             value TEXT NOT NULL
         );",
-    )
+    )?;
+    migrate(conn)
+}
+
+/// Add columns introduced after the first release to existing databases.
+fn migrate(conn: &Connection) -> rusqlite::Result<()> {
+    let existing: Vec<String> = conn
+        .prepare("SELECT name FROM pragma_table_info('movies')")?
+        .query_map([], |row| row.get(0))?
+        .collect::<rusqlite::Result<_>>()?;
+    for (name, ddl) in [
+        ("genres", "ALTER TABLE movies ADD COLUMN genres TEXT"),
+        ("overview", "ALTER TABLE movies ADD COLUMN overview TEXT"),
+    ] {
+        if !existing.iter().any(|c| c == name) {
+            conn.execute(ddl, [])?;
+        }
+    }
+    Ok(())
 }
 
 fn from_row(row: &Row) -> rusqlite::Result<Movie> {
@@ -63,16 +85,18 @@ fn from_row(row: &Row) -> rusqlite::Result<Movie> {
         poster: row.get(5)?,
         director: row.get(6)?,
         runtime: row.get(7)?,
-        notes: row.get(8)?,
-        watched: row.get::<_, i64>(9)? != 0,
-        added_at: row.get(10)?,
+        genres: row.get(8)?,
+        overview: row.get(9)?,
+        notes: row.get(10)?,
+        watched: row.get::<_, i64>(11)? != 0,
+        added_at: row.get(12)?,
     })
 }
 
 pub fn list(conn: &Connection) -> rusqlite::Result<Vec<Movie>> {
     conn.prepare(
         "SELECT id, title, year, format, barcode, poster, director, runtime,
-                notes, watched, added_at
+                genres, overview, notes, watched, added_at
          FROM movies ORDER BY title COLLATE NOCASE",
     )?
     .query_map([], from_row)?
@@ -82,8 +106,8 @@ pub fn list(conn: &Connection) -> rusqlite::Result<Vec<Movie>> {
 pub fn add(conn: &Connection, mut movie: Movie) -> rusqlite::Result<Movie> {
     conn.execute(
         "INSERT INTO movies (title, year, format, barcode, poster, director,
-                             runtime, notes, watched, added_at)
-         VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10)",
+                             runtime, genres, overview, notes, watched, added_at)
+         VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12)",
         params![
             movie.title,
             movie.year,
@@ -92,6 +116,8 @@ pub fn add(conn: &Connection, mut movie: Movie) -> rusqlite::Result<Movie> {
             movie.poster,
             movie.director,
             movie.runtime,
+            movie.genres,
+            movie.overview,
             movie.notes,
             movie.watched as i64,
             movie.added_at,
@@ -105,8 +131,8 @@ pub fn update(conn: &Connection, movie: &Movie) -> rusqlite::Result<()> {
     conn.execute(
         "UPDATE movies SET title = ?1, year = ?2, format = ?3, barcode = ?4,
                            poster = ?5, director = ?6, runtime = ?7,
-                           notes = ?8, watched = ?9
-         WHERE id = ?10",
+                           genres = ?8, overview = ?9, notes = ?10, watched = ?11
+         WHERE id = ?12",
         params![
             movie.title,
             movie.year,
@@ -115,6 +141,8 @@ pub fn update(conn: &Connection, movie: &Movie) -> rusqlite::Result<()> {
             movie.poster,
             movie.director,
             movie.runtime,
+            movie.genres,
+            movie.overview,
             movie.notes,
             movie.watched as i64,
             movie.id,

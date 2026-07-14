@@ -115,6 +115,8 @@ export async function importJson(text) {
       poster: raw.poster ?? null,
       director: raw.director ?? null,
       runtime: raw.runtime ?? null,
+      genres: raw.genres ?? null,
+      overview: raw.overview ?? null,
       notes: raw.notes || "",
       watched: !!raw.watched,
     };

@@ -18,8 +18,12 @@ ui/                  vanilla HTML/CSS/JS — no build step, no framework
     main.js          controller: state, wiring, rendering pipeline
     store.js         STORAGE ADAPTER — the key seam (see below)
     views.js         pure rendering (grid cards / list rows)
-    lookup.js        barcode → title (upcitemdb), optional TMDB enrichment
-    scan.js          camera scanning via BarcodeDetector API
+    lookup.js        barcode → title (upcitemdb), blu-ray.com box art search,
+                     TMDB posters/details
+    scan.js          camera scanning: BarcodeDetector where available,
+                     else our own decoder (iOS Safari)
+    ean13.js         pure-JS EAN-13/UPC-A decoder for camera frames —
+                     tested by synthetic-barcode suite (see git history)
     theme.js         dark/light toggle, localStorage-persisted
   manifest.webmanifest, sw.js   PWA shell (app-shell cache, offline-capable)
   fonts/, icons/     vendored — everything is self-contained, relative paths
@@ -44,13 +48,24 @@ title+year) are skipped, never overwritten.
 | "DVD"), barcode, poster, director, runtime, notes, watched, added_at }`.
 IDs are SQLite rowids on desktop, UUIDs in the PWA — treated as opaque in JS.
 
-## External services (both optional, degrade gracefully)
+## External services (all optional, degrade gracefully)
 
 - **upcitemdb trial API** — keyless barcode → product title, ~100 req/day.
-  Routed through Rust on desktop (CORS); direct fetch in the PWA.
-- **TMDB** — title/year/poster/director/runtime. Needs an API key, pasted
-  into the ⋯ menu, stored in settings (SQLite or localStorage). No key means
-  no posters/candidates; manual entry still works.
+  Routed through Rust on desktop; CORS-locked, so in the PWA the fetch fails
+  and the user types a title instead (scan-to-check needs no network at all).
+- **blu-ray.com quicksearch** — physical box art. POST to
+  `search/quicksearch.php` (`section=bluraymovies|dvdmovies`), response is an
+  autocomplete `<li>` list plus a parallel `var urls = new Array(…)`; covers
+  live at `images.static-bluray.com/movies/covers/{id}_{medium,large,front}.jpg`.
+  Endpoint and images are both CORS-open (`ACAO: *`), so this works from the
+  phone too. Unofficial — if it breaks, check the response shape first.
+- **TMDB** — posters + details (year, director, runtime, genres, overview).
+  Needs an API key (⋯ menu, stored in settings, never committed). Key is
+  validated against `/configuration` on save.
+
+**Movie shape** gained `genres` and `overview`; `db::migrate()` ALTERs older
+SQLite databases. Barcodes are compared via `normalizeBarcode()` (leading
+zeros stripped) so a scanned EAN-13 matches a typed UPC-A.
 
 ## Running
 

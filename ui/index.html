@@ -86,8 +86,28 @@
           </label>
         </div>
 
+        <div class="field-row">
+          <label class="field grow">
+            <span>find covers &amp; details</span>
+            <span class="joined">
+              <input id="art-query" autocomplete="off" placeholder="title to search for" />
+              <button type="button" id="btn-art-search" class="tool accent">search</button>
+            </span>
+          </label>
+        </div>
+
         <div id="lookup-status" hidden></div>
-        <div id="tmdb-candidates" hidden></div>
+
+        <div id="art-results" hidden>
+          <div class="art-group" id="group-bluray" hidden>
+            <span class="panel-label">box art — blu-ray.com <span class="muted">(sets the cover)</span></span>
+            <div class="candidates" id="cands-bluray"></div>
+          </div>
+          <div class="art-group" id="group-tmdb" hidden>
+            <span class="panel-label">posters &amp; details — tmdb <span class="muted">(fills everything)</span></span>
+            <div class="candidates" id="cands-tmdb"></div>
+          </div>
+        </div>
 
         <div class="field-row">
           <label class="field grow">
@@ -121,8 +141,25 @@
 
         <div class="field-row">
           <label class="field grow">
-            <span>poster url</span>
-            <input name="poster" autocomplete="off" placeholder="https://…" />
+            <span>genres</span>
+            <input name="genres" autocomplete="off" placeholder="action, sci-fi" />
+          </label>
+        </div>
+
+        <div class="field-row">
+          <label class="field grow">
+            <span>cover / poster url</span>
+            <span class="joined">
+              <img id="poster-preview" alt="" hidden />
+              <input name="poster" autocomplete="off" placeholder="https://…" />
+            </span>
+          </label>
+        </div>
+
+        <div class="field-row">
+          <label class="field grow">
+            <span>overview</span>
+            <textarea name="overview" rows="2"></textarea>
           </label>
         </div>
 
@@ -218,6 +255,15 @@
           <input id="tmdb-key" autocomplete="off" placeholder="paste your themoviedb.org api key" />
           <button type="button" id="btn-save-key" class="tool">save</button>
         </span>
+        <p class="muted" id="tmdb-key-status"></p>
+      </div>
+
+      <div class="menu-section">
+        <span class="panel-label">housekeeping</span>
+        <div class="dlg-actions">
+          <button type="button" id="btn-fetch-missing" class="tool">fetch missing covers &amp; details</button>
+        </div>
+        <p class="muted">fills in art, director, runtime and genres for movies that don't have them yet.</p>
       </div>
 
       <div class="menu-section muted" id="about-line"></div>

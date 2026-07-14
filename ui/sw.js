@@ -2,7 +2,7 @@
 // with no signal in the store aisle. Collection data itself lives in
 // localStorage, not here.
 
-const CACHE = "shelf-v1";
+const CACHE = "shelf-v2";
 const SHELL = [
   "./",
   "./index.html",
@@ -13,6 +13,7 @@ const SHELL = [
   "./js/store.js",
   "./js/lookup.js",
   "./js/scan.js",
+  "./js/ean13.js",
   "./js/views.js",
   "./icons/icon.svg",
   "./icons/icon-192.png",
