@@ -2,7 +2,7 @@
 // with no signal in the store aisle. Collection data itself lives in
 // localStorage, not here.
 
-const CACHE = "shelf-v4";
+const CACHE = "shelf-v5";
 const SHELL = [
   "./",
   "./index.html",

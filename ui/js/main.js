@@ -598,10 +598,51 @@ async function finishImport(text) {
 
 // -------------------------------------------------- bulk enrichment
 
-/** Fill in missing posters/details across the collection: box art from
- * blu-ray.com, details from TMDB, first plausible match wins. */
+const needsEnrichment = (m) => !m.poster || !m.director || !m.genres;
+
+/** Fill in one movie's missing poster/details in place: box art from
+ * blu-ray.com, details from TMDB, first plausible match wins. Returns
+ * whether anything changed. */
+async function enrichMovie(m) {
+  let changed = false;
+
+  if (!m.poster) {
+    try {
+      const covers = await searchBluray(m.title, m.format);
+      const best = covers.find((c) => c.format === m.format) ?? covers[0] ?? null;
+      if (best) {
+        m.poster = best.coverFull;
+        changed = true;
+      }
+    } catch {
+      // blu-ray.com down/blocked — TMDB below may still cover us
+    }
+  }
+
+  if (!m.director || !m.genres || !m.poster) {
+    try {
+      const hits = await searchTmdb(m.title, m.year ?? undefined);
+      const hit = hits.find((h) => !m.year || h.year === m.year) ?? hits[0] ?? null;
+      if (hit) {
+        const extra = await tmdbDetails(hit.tmdbId);
+        if (!m.poster && hit.poster) (m.poster = hit.poster), (changed = true);
+        if (!m.year && hit.year) (m.year = hit.year), (changed = true);
+        if (!m.director && extra.director) (m.director = extra.director), (changed = true);
+        if (!m.runtime && extra.runtime) (m.runtime = extra.runtime), (changed = true);
+        if (!m.genres && extra.genres) (m.genres = extra.genres), (changed = true);
+        if (!m.overview && extra.overview) (m.overview = extra.overview), (changed = true);
+      }
+    } catch {
+      // no key / rate limit — keep going with what we have
+    }
+  }
+
+  return changed;
+}
+
+/** Fill in missing posters/details across the collection. */
 async function fetchMissing() {
-  const targets = movies.filter((m) => !m.poster || !m.director || !m.genres);
+  const targets = movies.filter(needsEnrichment);
   if (!targets.length) {
     toast("nothing missing — the shelf is fully dressed");
     return;
@@ -613,42 +654,7 @@ async function fetchMissing() {
     for (let i = 0; i < targets.length; i++) {
       const m = targets[i];
       toast(`fetching ${i + 1}/${targets.length}: ${m.title}…`);
-      let changed = false;
-
-      if (!m.poster) {
-        try {
-          const covers = await searchBluray(m.title, m.format);
-          const best =
-            covers.find((c) => c.format === m.format) ?? covers[0] ?? null;
-          if (best) {
-            m.poster = best.coverFull;
-            changed = true;
-          }
-        } catch {
-          // blu-ray.com down/blocked — TMDB below may still cover us
-        }
-      }
-
-      if (!m.director || !m.genres || !m.poster) {
-        try {
-          const hits = await searchTmdb(m.title, m.year ?? undefined);
-          const hit =
-            hits.find((h) => !m.year || h.year === m.year) ?? hits[0] ?? null;
-          if (hit) {
-            const extra = await tmdbDetails(hit.tmdbId);
-            if (!m.poster && hit.poster) (m.poster = hit.poster), (changed = true);
-            if (!m.year && hit.year) (m.year = hit.year), (changed = true);
-            if (!m.director && extra.director) (m.director = extra.director), (changed = true);
-            if (!m.runtime && extra.runtime) (m.runtime = extra.runtime), (changed = true);
-            if (!m.genres && extra.genres) (m.genres = extra.genres), (changed = true);
-            if (!m.overview && extra.overview) (m.overview = extra.overview), (changed = true);
-          }
-        } catch {
-          // no key / rate limit — keep going with what we have
-        }
-      }
-
-      if (changed) {
+      if (await enrichMovie(m)) {
         await store.updateMovie(m);
         touched++;
       }
@@ -824,10 +830,23 @@ window.addEventListener("DOMContentLoaded", async () => {
 
   await reload();
 
-  // phone scans land in SQLite from the Rust side; refresh and announce
+  // phone scans land in SQLite from the Rust side; refresh, announce, and
+  // immediately chase down box art/details so it doesn't sit bare until
+  // the next manual "fetch missing" pass
   store.onPhoneScan(async (movie) => {
     await reload();
     toast(`scanned from phone: ${movie.title} [${movie.format}]`);
+
+    const m = movies.find((mv) => mv.id === movie.id);
+    if (!m || !needsEnrichment(m)) return;
+    try {
+      if (await enrichMovie(m)) {
+        await store.updateMovie(m);
+        await reload();
+      }
+    } catch {
+      // best-effort — the movie is already on the shelf either way
+    }
   });
 
   if (!store.isTauri && "serviceWorker" in navigator && location.protocol === "https:") {
