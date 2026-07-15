@@ -385,12 +385,18 @@ const dlgScanResult = $("#dlg-scan-result");
 const video = $("#scan-video");
 let scanTarget = "check"; // "check" (toolbar flow) | "form" (fill barcode field)
 
+const scanLive = $("#scan-live");
+
 async function beginScan(target) {
   scanTarget = target;
+  scanLive.classList.remove("show");
   dlgScan.showModal();
   let code;
   try {
-    code = await startScan(video);
+    code = await startScan(video, (candidate) => {
+      scanLive.textContent = candidate;
+      scanLive.classList.add("show");
+    });
   } catch {
     dlgScan.close();
     toast("camera unavailable — on iPhone this needs https and camera permission", true);
@@ -408,6 +414,15 @@ async function beginScan(target) {
 }
 
 dlgScan.addEventListener("close", () => stopScan(video));
+
+$("#btn-scan-manual").addEventListener("click", () => {
+  dlgScan.close();
+  if (scanTarget === "form") {
+    form.elements.barcode.focus();
+  } else {
+    openAdd({});
+  }
+});
 
 function showScanResult(code) {
   const owned = findByBarcode(code);
@@ -435,6 +450,10 @@ function showScanResult(code) {
       n.textContent = owned.notes;
       info.append(n);
     }
+    const scanned = document.createElement("div");
+    scanned.className = "muted";
+    scanned.textContent = `scanned ${code}`;
+    info.append(scanned);
     card.append(info);
     $("#btn-scan-add").hidden = true;
   } else {

@@ -648,6 +648,42 @@ dialog::backdrop {
   margin: 10px 0 0;
 }
 
+#scan-live {
+  position: absolute;
+  left: 50%;
+  bottom: 8%;
+  transform: translateX(-50%);
+  padding: 3px 10px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  font-variant-numeric: tabular-nums;
+  opacity: 0;
+  transition: opacity 0.15s;
+  pointer-events: none;
+}
+
+#scan-live.show {
+  opacity: 1;
+}
+
+#scan-manual {
+  text-align: center;
+  margin: 6px 0 0;
+}
+
+.link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--accent);
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 /* scan result */
 
 .scan-result-card {
