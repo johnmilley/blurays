@@ -749,6 +749,18 @@ async function openMenu() {
   $("#tmdb-key-status").textContent = "";
   $("#about-line").textContent =
     `shelf · ${store.isTauri ? "desktop" : "pwa"} · ${movies.length} titles`;
+  if (store.isTauri) {
+    $("#phone-scan-section").hidden = false;
+    try {
+      const { ip, port, token } = await store.scanServerInfo();
+      $("#scan-url").textContent = `http://${ip}:${port}/scan?token=${token}&code=`;
+      $("#phone-scan-status").textContent =
+        `listening on ${ip}:${port} — phone must be on the same wi-fi. ` +
+        `if scans don't arrive, open the port: sudo firewall-cmd --add-port=${port}/tcp`;
+    } catch (e) {
+      $("#phone-scan-status").textContent = `scan server unavailable: ${e}`;
+    }
+  }
   $("#dlg-menu").showModal();
 }
 
@@ -811,6 +823,12 @@ window.addEventListener("DOMContentLoaded", async () => {
   }
 
   await reload();
+
+  // phone scans land in SQLite from the Rust side; refresh and announce
+  store.onPhoneScan(async (movie) => {
+    await reload();
+    toast(`scanned from phone: ${movie.title} [${movie.format}]`);
+  });
 
   if (!store.isTauri && "serviceWorker" in navigator && location.protocol === "https:") {
     navigator.serviceWorker.register("./sw.js").catch(() => {});

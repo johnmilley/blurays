@@ -1,12 +1,13 @@
 mod db;
 mod lookup;
+mod server;
 
-use std::sync::Mutex;
+use std::sync::{Arc, Mutex};
 
 use rusqlite::Connection;
 use tauri::Manager;
 
-struct Db(Mutex<Connection>);
+struct Db(Arc<Mutex<Connection>>);
 
 #[tauri::command]
 fn list_movies(state: tauri::State<Db>) -> Result<Vec<db::Movie>, String> {
@@ -45,6 +46,17 @@ async fn lookup_barcode(code: String) -> Result<serde_json::Value, String> {
         .map_err(|e| e.to_string())?
 }
 
+/// Everything the "phone scanning" setup panel needs to show the user.
+#[tauri::command]
+fn scan_server_info(state: tauri::State<Db>) -> Result<serde_json::Value, String> {
+    let token = server::ensure_token(&state.0.lock().unwrap()).map_err(|e| e.to_string())?;
+    Ok(serde_json::json!({
+        "ip": server::lan_ip(),
+        "port": server::PORT,
+        "token": token,
+    }))
+}
+
 #[tauri::command]
 fn write_file(path: String, contents: String) -> Result<(), String> {
     std::fs::write(&path, contents).map_err(|e| format!("couldn't write {path}: {e}"))
@@ -63,7 +75,10 @@ pub fn run() {
             std::fs::create_dir_all(&dir)?;
             let conn = Connection::open(dir.join("shelf.db"))?;
             db::init(&conn)?;
-            app.manage(Db(Mutex::new(conn)));
+            let token = server::ensure_token(&conn)?;
+            let conn = Arc::new(Mutex::new(conn));
+            server::spawn(app.handle().clone(), conn.clone(), token);
+            app.manage(Db(conn));
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![
@@ -74,6 +89,7 @@ pub fn run() {
             get_setting,
             set_setting,
             lookup_barcode,
+            scan_server_info,
             write_file,
             read_file,
         ])

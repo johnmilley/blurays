@@ -71,6 +71,20 @@ export async function setSetting(key, value) {
   localStorage.setItem(SETTINGS_KEY, JSON.stringify(s));
 }
 
+// ---------------------------------------------------------- phone scanning
+
+/** Desktop only: { ip, port, token } for the LAN scan endpoint. */
+export async function scanServerInfo() {
+  if (!isTauri) return null;
+  return invoke("scan_server_info");
+}
+
+/** Desktop only: `cb(movie)` fires when a phone scan adds a movie. */
+export function onPhoneScan(cb) {
+  if (!isTauri) return;
+  window.__TAURI__.event.listen("phone-scan", (e) => cb(e.payload));
+}
+
 // ---------------------------------------------------------- import/export
 
 export async function exportJson() {

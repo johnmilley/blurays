@@ -776,6 +776,24 @@ dialog::backdrop {
   flex: 1;
 }
 
+#phone-scan-steps {
+  margin: 8px 0 0;
+  padding-left: 20px;
+}
+
+#phone-scan-steps li {
+  margin-top: 4px;
+}
+
+#phone-scan-section code {
+  user-select: all;
+  word-break: break-all;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 5px;
+}
+
 /* ------------------------------------------------- window resize grips */
 
 .grip {

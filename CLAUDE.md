@@ -32,7 +32,20 @@ src-tauri/           Rust backend for the desktop app
   src/lib.rs         Tauri commands + setup
   src/db.rs          SQLite (rusqlite, bundled) — movies + settings tables
   src/lookup.rs      UPC lookup over ureq (bypasses webview CORS)
+  src/server.rs      LAN scan server (tiny_http, port 7788) — see below
 ```
+
+**Phone → desktop scanning** (the primary cataloging flow): the desktop
+listens on port 7788. An iOS Shortcut (native barcode scanner — no Safari,
+no CORS, no JS decoder) GETs `/scan?token=…&code=…`; Rust checks the DB
+(leading zeros normalized), else looks the title up via upcitemdb, inserts,
+emits a `phone-scan` Tauri event (UI reloads + toasts), and replies in plain
+text, which the Shortcut shows as a notification ("added: …" / "you already
+have: …"). The token is generated once into the settings table
+(`scan_token`); the ⋯ menu shows the full URL and Shortcut setup steps.
+Unknown barcodes are still inserted as `unknown (<code>)` so a batch session
+never drops a disc. The in-store "do I own this?" check remains the PWA
+(localStorage, offline).
 
 **The seam:** `ui/js/store.js` detects `window.__TAURI__`. Under Tauri, every
 data call invokes a Rust command backed by SQLite in the app data dir

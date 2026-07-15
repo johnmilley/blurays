@@ -260,6 +260,21 @@
         <p class="muted" id="tmdb-key-status"></p>
       </div>
 
+      <div class="menu-section" id="phone-scan-section" hidden>
+        <span class="panel-label">scan from your iphone</span>
+        <p class="muted">no app needed — the Shortcuts app scans with the native camera and sends barcodes straight here. one-time setup:</p>
+        <ol id="phone-scan-steps" class="muted">
+          <li>open <strong>Shortcuts</strong> on the iphone → <strong>+</strong> new shortcut</li>
+          <li>add action <strong>Scan QR/Bar Code</strong></li>
+          <li>add action <strong>Get Contents of URL</strong>, set the URL to
+            <code id="scan-url"></code>
+            and put the <em>Scanned Code</em> variable after <code>code=</code></li>
+          <li>add action <strong>Show Notification</strong> with <em>Contents of URL</em> as the body</li>
+          <li>name it "shelf scan", add it to the home screen</li>
+        </ol>
+        <p class="muted" id="phone-scan-status"></p>
+      </div>
+
       <div class="menu-section">
         <span class="panel-label">housekeeping</span>
         <div class="dlg-actions">

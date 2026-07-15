@@ -75,7 +75,7 @@ fn migrate(conn: &Connection) -> rusqlite::Result<()> {
     Ok(())
 }
 
-fn from_row(row: &Row) -> rusqlite::Result<Movie> {
+pub(crate) fn from_row(row: &Row) -> rusqlite::Result<Movie> {
     Ok(Movie {
         id: row.get(0)?,
         title: row.get(1)?,
