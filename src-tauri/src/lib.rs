@@ -1,5 +1,6 @@
 mod db;
 mod lookup;
+mod publish;
 mod server;
 
 use std::sync::{Arc, Mutex};
@@ -58,6 +59,15 @@ fn scan_server_info(state: tauri::State<Db>) -> Result<serde_json::Value, String
 }
 
 #[tauri::command]
+fn publish_to_repo(state: tauri::State<Db>) -> Result<String, String> {
+    let conn = state.0.lock().unwrap();
+    let repo_path = db::get_setting(&conn, "repo_path")
+        .map_err(|e| e.to_string())?
+        .ok_or("no repo folder set — use \"set repo folder\" first")?;
+    publish::publish(&conn, &repo_path)
+}
+
+#[tauri::command]
 fn write_file(path: String, contents: String) -> Result<(), String> {
     std::fs::write(&path, contents).map_err(|e| format!("couldn't write {path}: {e}"))
 }
@@ -90,6 +100,7 @@ pub fn run() {
             set_setting,
             lookup_barcode,
             scan_server_info,
+            publish_to_repo,
             write_file,
             read_file,
         ])

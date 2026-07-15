@@ -49,19 +49,28 @@ pub fn spawn(app: AppHandle, conn: Arc<Mutex<Connection>>, token: String) {
                 return;
             }
         };
+        // One thread per request: a slow upcitemdb lookup (the trial API is
+        // not fast, and rate-limits) must not block the accept loop, or a
+        // second scan fired while the first is still resolving queues up
+        // behind it and the Shortcut sits there until it times out.
         for request in server.incoming_requests() {
-            let reply = handle(&app, &conn, &token, request.url());
-            let (status, body) = match reply {
-                Ok(body) => (200, body),
-                Err((status, body)) => (status, body),
-            };
-            let response = tiny_http::Response::from_string(body)
-                .with_status_code(status)
-                .with_header(
-                    tiny_http::Header::from_bytes("Content-Type", "text/plain; charset=utf-8")
-                        .unwrap(),
-                );
-            let _ = request.respond(response);
+            let app = app.clone();
+            let conn = conn.clone();
+            let token = token.clone();
+            std::thread::spawn(move || {
+                let reply = handle(&app, &conn, &token, request.url());
+                let (status, body) = match reply {
+                    Ok(body) => (200, body),
+                    Err((status, body)) => (status, body),
+                };
+                let response = tiny_http::Response::from_string(body)
+                    .with_status_code(status)
+                    .with_header(
+                        tiny_http::Header::from_bytes("Content-Type", "text/plain; charset=utf-8")
+                            .unwrap(),
+                    );
+                let _ = request.respond(response);
+            });
         }
     });
 }
@@ -99,8 +108,13 @@ fn handle(
     if !code.chars().all(|c| c.is_ascii_digit()) || code.len() < 8 || code.len() > 14 {
         return Err((400, format!("'{code}' doesn't look like a UPC/EAN barcode")));
     }
+    // iOS's scanner reports the same physical barcode as UPC-A (12 digits)
+    // or EAN-13 (13 digits, leading 0) depending on scan conditions —
+    // normalize once here so lookup, ownership-check, and what gets stored
+    // are all the same canonical digits regardless of which one it saw.
+    let code = normalize_barcode(&code);
 
-    // already on the shelf? (leading zeros stripped, same as the JS side)
+    // already on the shelf?
     let owned = find_by_barcode(conn, &code).map_err(internal)?;
     if let Some(m) = owned {
         let year = m.year.map(|y| format!(" ({y})")).unwrap_or_default();
@@ -177,6 +191,17 @@ fn find_by_barcode(
 
 fn internal<E: std::fmt::Display>(e: E) -> (u16, String) {
     (500, format!("shelf error: {e}"))
+}
+
+/// Twin of normalizeBarcode() in ui/js/lookup.js. Strips leading zeros so
+/// UPC-A and its EAN-13 form (which just prepends one) normalize the same.
+fn normalize_barcode(code: &str) -> String {
+    let stripped = code.trim_start_matches('0');
+    if stripped.is_empty() {
+        "0".to_string()
+    } else {
+        stripped.to_string()
+    }
 }
 
 // Rust twins of guessFormat/cleanTitle in ui/js/lookup.js — keep in step.

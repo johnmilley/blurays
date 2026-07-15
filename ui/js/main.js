@@ -11,7 +11,6 @@ import {
   guessFormat,
   normalizeBarcode,
 } from "./lookup.js";
-import { scanSupported, startScan, stopScan } from "./scan.js";
 import { renderGrid, renderList, posterEl } from "./views.js";
 
 const $ = (sel) => document.querySelector(sel);
@@ -93,14 +92,18 @@ function render() {
   rows.hidden = prefs.view !== "list" || !list.length;
   empty.hidden = !!list.length;
   if (!list.length && movies.length) {
-    empty.querySelector("p").textContent = "No matches.";
-    empty.querySelector("button").hidden = true;
+    $("#empty-message").textContent = "No matches.";
+    $("#btn-add-empty").hidden = true;
   } else {
-    empty.querySelector("p").textContent = "Nothing here yet.";
-    empty.querySelector("button").hidden = false;
+    $("#empty-message").textContent = store.isTauri
+      ? "Nothing here yet."
+      : "Nothing here yet — scan some discs at home and publish from the desktop app.";
+    $("#btn-add-empty").hidden = !store.isTauri;
   }
 
-  const callbacks = { onOpen: openEdit, onToggleWatched: toggleWatched };
+  const callbacks = store.isTauri
+    ? { onOpen: openEdit, onToggleWatched: toggleWatched }
+    : { onOpen: showDetail };
   if (prefs.view === "grid") renderGrid(grid, list, callbacks);
   else renderList(rows, list, callbacks);
 
@@ -378,105 +381,44 @@ function renderTmdbCandidates(results) {
   }
 }
 
-// ------------------------------------------------------------ scanning
+// ------------------------------------------------------------ read-only detail (mobile)
 
-const dlgScan = $("#dlg-scan");
-const dlgScanResult = $("#dlg-scan-result");
-const video = $("#scan-video");
-let scanTarget = "check"; // "check" (toolbar flow) | "form" (fill barcode field)
+const dlgDetail = $("#dlg-detail");
 
-const scanLive = $("#scan-live");
-
-async function beginScan(target) {
-  scanTarget = target;
-  scanLive.classList.remove("show");
-  dlgScan.showModal();
-  let code;
-  try {
-    code = await startScan(video, (candidate) => {
-      scanLive.textContent = candidate;
-      scanLive.classList.add("show");
-    });
-  } catch {
-    dlgScan.close();
-    toast("camera unavailable — on iPhone this needs https and camera permission", true);
-    return;
-  }
-  dlgScan.close();
-  if (!code) return; // cancelled
-
-  if (scanTarget === "form") {
-    form.elements.barcode.value = code;
-    runLookup();
-    return;
-  }
-  showScanResult(code);
-}
-
-dlgScan.addEventListener("close", () => stopScan(video));
-
-$("#btn-scan-manual").addEventListener("click", () => {
-  dlgScan.close();
-  if (scanTarget === "form") {
-    form.elements.barcode.focus();
-  } else {
-    openAdd({});
-  }
-});
-
-function showScanResult(code) {
-  const owned = findByBarcode(code);
-  const body = $("#scan-result-body");
+/** Non-editable movie popup for the read-only web view — no camera, no
+ * add/edit; discs get added at home via the phone-scan Shortcut. */
+function showDetail(movie) {
+  $("#detail-label").textContent = `${movie.format}${movie.year ? ` · ${movie.year}` : ""}`;
+  const body = $("#detail-body");
   body.replaceChildren();
 
   const card = document.createElement("div");
-  card.className = "scan-result-card";
-  if (owned) {
-    $("#scan-result-label").textContent = "you have this";
-    card.append(posterEl(owned));
-    const info = document.createElement("div");
-    const own = document.createElement("div");
-    own.className = "scan-owned";
-    own.textContent = "✓ in your collection";
-    const t = document.createElement("div");
-    t.textContent = `${owned.title}${owned.year ? ` (${owned.year})` : ""} — ${owned.format}`;
-    const w = document.createElement("div");
-    w.className = "muted";
-    w.textContent = owned.watched ? "watched" : "unwatched";
-    info.append(own, t, w);
-    if (owned.notes) {
-      const n = document.createElement("div");
-      n.className = "muted";
-      n.textContent = owned.notes;
-      info.append(n);
-    }
-    const scanned = document.createElement("div");
-    scanned.className = "muted";
-    scanned.textContent = `scanned ${code}`;
-    info.append(scanned);
-    card.append(info);
-    $("#btn-scan-add").hidden = true;
-  } else {
-    $("#scan-result-label").textContent = "not in collection";
-    const info = document.createElement("div");
-    info.textContent = `no movie with barcode ${code} on your shelf.`;
-    card.append(info);
-    const add = $("#btn-scan-add");
-    add.hidden = false;
-    add.onclick = () => {
-      dlgScanResult.close();
-      openAdd({ barcode: code });
-      runLookup();
-    };
-  }
+  card.className = "detail-card";
+  card.append(posterEl(movie));
+
+  const info = document.createElement("div");
+  const t = document.createElement("div");
+  t.textContent = movie.title;
+  t.style.fontWeight = "700";
+  info.append(t);
+  if (movie.director) info.append(el("div", "muted", movie.director));
+  if (movie.runtime) info.append(el("div", "muted", `${movie.runtime} min`));
+  if (movie.genres) info.append(el("div", "muted", movie.genres));
+  info.append(el("div", "detail-watched", movie.watched ? "✓ watched" : "unwatched"));
+  if (movie.overview) info.append(el("div", "muted", movie.overview));
+  if (movie.notes) info.append(el("div", "muted", movie.notes));
+  card.append(info);
+
   body.append(card);
-  dlgScanResult.showModal();
+  dlgDetail.showModal();
 }
 
-$("#btn-scan-again").addEventListener("click", () => {
-  dlgScanResult.close();
-  beginScan("check");
-});
+function el(tag, className, text) {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  if (text != null) node.textContent = text;
+  return node;
+}
 
 // ------------------------------------------------------------ movie night
 
@@ -737,16 +679,18 @@ function initToolbar() {
   });
 
   $("#btn-theme").addEventListener("click", toggleTheme);
-  $("#btn-add").addEventListener("click", () => openAdd());
-  $("#btn-add-empty").addEventListener("click", () => openAdd());
-  $("#btn-night").addEventListener("click", movieNight);
-  $("#btn-menu").addEventListener("click", () => openMenu());
 
-  if (scanSupported()) {
-    $("#btn-scan").hidden = false;
-    $("#btn-scan-inline").hidden = false;
-    $("#btn-scan").addEventListener("click", () => beginScan("check"));
-    $("#btn-scan-inline").addEventListener("click", () => beginScan("form"));
+  // add/edit, movie night, and the ⋯ menu are desktop-only — the phone view
+  // is a read-only browse of what's already on the shelf, kept up to date
+  // by the desktop's "publish" button rather than editing on the go
+  if (store.isTauri) {
+    $("#btn-add").hidden = false;
+    $("#btn-night").hidden = false;
+    $("#btn-menu").hidden = false;
+    $("#btn-add").addEventListener("click", () => openAdd());
+    $("#btn-add-empty").addEventListener("click", () => openAdd());
+    $("#btn-night").addEventListener("click", movieNight);
+    $("#btn-menu").addEventListener("click", () => openMenu());
   }
 }
 
@@ -766,8 +710,36 @@ async function openMenu() {
     } catch (e) {
       $("#phone-scan-status").textContent = `scan server unavailable: ${e}`;
     }
+    const repoPath = await store.getSetting("repo_path");
+    $("#repo-path-status").textContent = repoPath
+      ? `repo: ${repoPath}`
+      : "no repo folder set yet";
+    $("#publish-status").textContent = "";
   }
   $("#dlg-menu").showModal();
+}
+
+async function setRepoFolder() {
+  const path = await store.pickRepoFolder();
+  if (!path) return;
+  $("#repo-path-status").textContent = `repo: ${path}`;
+  toast("repo folder set");
+}
+
+async function doPublish() {
+  const btn = $("#btn-publish");
+  btn.disabled = true;
+  $("#publish-status").textContent = "publishing…";
+  try {
+    const result = await store.publish();
+    $("#publish-status").textContent = result;
+    toast(result);
+  } catch (err) {
+    $("#publish-status").textContent = String(err);
+    toast(`publish failed: ${err}`, true);
+  } finally {
+    btn.disabled = false;
+  }
 }
 
 async function saveKey() {
@@ -791,6 +763,8 @@ async function saveKey() {
 function initMenu() {
   $("#btn-export").addEventListener("click", doExport);
   $("#btn-import").addEventListener("click", doImport);
+  $("#btn-set-repo").addEventListener("click", setRepoFolder);
+  $("#btn-publish").addEventListener("click", doPublish);
   $("#btn-fetch-missing").addEventListener("click", fetchMissing);
   $("#btn-save-key").addEventListener("click", saveKey);
   $("#tmdb-key").addEventListener("keydown", (e) => {
@@ -808,7 +782,7 @@ function initShortcuts() {
     if (e.key === "/") {
       e.preventDefault();
       $("#search").focus();
-    } else if (e.key === "n") {
+    } else if (e.key === "n" && store.isTauri) {
       e.preventDefault();
       openAdd();
     } else if (e.key === "g") {

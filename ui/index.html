@@ -46,10 +46,9 @@
       <span class="toolbar-spring"></span>
 
       <button id="btn-view" class="tool" title="Toggle grid / list view">list</button>
-      <button id="btn-scan" class="tool" title="Scan a barcode" hidden>scan</button>
-      <button id="btn-night" class="tool" title="Pick a random unwatched movie">movie night</button>
-      <button id="btn-add" class="tool accent" title="Add a movie (n)">+ add</button>
-      <button id="btn-menu" class="tool" title="Import / export / settings">&#x22EF;</button>
+      <button id="btn-night" class="tool" title="Pick a random unwatched movie" hidden>movie night</button>
+      <button id="btn-add" class="tool accent" title="Add a movie (n)" hidden>+ add</button>
+      <button id="btn-menu" class="tool" title="Import / export / settings" hidden>&#x22EF;</button>
       <button id="btn-theme" class="tool" title="Toggle dark / light theme">&#x25D0;</button>
     </div>
 
@@ -57,8 +56,8 @@
       <div id="grid" hidden></div>
       <div id="list" hidden></div>
       <div id="empty" class="panel-empty" hidden>
-        <p>Nothing here yet.</p>
-        <p><button id="btn-add-empty" class="tool accent">+ add your first movie</button></p>
+        <p id="empty-message">Nothing here yet.</p>
+        <p><button id="btn-add-empty" class="tool accent" hidden>+ add your first movie</button></p>
       </div>
     </main>
 
@@ -79,9 +78,8 @@
           <label class="field grow">
             <span>barcode</span>
             <span class="joined">
-              <input name="barcode" inputmode="numeric" autocomplete="off" placeholder="scan or type UPC / EAN" />
+              <input name="barcode" inputmode="numeric" autocomplete="off" placeholder="type UPC / EAN" />
               <button type="button" id="btn-lookup" class="tool">lookup</button>
-              <button type="button" id="btn-scan-inline" class="tool" hidden>scan</button>
             </span>
           </label>
         </div>
@@ -185,34 +183,13 @@
       </form>
     </dialog>
 
-    <!-- barcode scanner -->
-    <dialog id="dlg-scan">
+    <!-- read-only movie detail (mobile / pwa) -->
+    <dialog id="dlg-detail">
       <div class="dlg-head">
-        <span class="panel-label">scan barcode</span>
+        <span class="panel-label" id="detail-label"></span>
         <button type="button" class="dlg-close" data-close>&#x2715;</button>
       </div>
-      <div id="scan-stage">
-        <video id="scan-video" playsinline muted></video>
-        <div id="scan-reticle"></div>
-        <div id="scan-live"></div>
-      </div>
-      <p id="scan-hint" class="muted">point the camera at the barcode on the back of the case</p>
-      <p id="scan-manual"><button type="button" class="link" id="btn-scan-manual">can't get a read — type it in instead</button></p>
-    </dialog>
-
-    <!-- scan result -->
-    <dialog id="dlg-scan-result">
-      <div class="dlg-head">
-        <span class="panel-label" id="scan-result-label"></span>
-        <button type="button" class="dlg-close" data-close>&#x2715;</button>
-      </div>
-      <div id="scan-result-body"></div>
-      <div class="dlg-actions">
-        <button type="button" class="tool" id="btn-scan-again">scan another</button>
-        <span class="toolbar-spring"></span>
-        <button type="button" class="tool accent" id="btn-scan-add" hidden>+ add it</button>
-        <button type="button" class="tool" data-close>done</button>
-      </div>
+      <div id="detail-body"></div>
     </dialog>
 
     <!-- movie night -->
@@ -242,13 +219,24 @@
       </div>
 
       <div class="menu-section">
-        <span class="panel-label">collection</span>
+        <span class="panel-label">backup</span>
         <div class="dlg-actions">
           <button type="button" id="btn-export" class="tool">export json</button>
           <button type="button" id="btn-import" class="tool">import json</button>
           <input type="file" id="import-file" accept=".json,application/json" hidden />
         </div>
-        <p class="muted">export on the desktop, import on your phone (or the reverse) to sync.</p>
+        <p class="muted">a plain backup file — import merges, never overwrites.</p>
+      </div>
+
+      <div class="menu-section">
+        <span class="panel-label">mobile web view</span>
+        <div class="dlg-actions">
+          <button type="button" id="btn-set-repo" class="tool">set repo folder</button>
+          <button type="button" id="btn-publish" class="tool accent">publish</button>
+        </div>
+        <p class="muted" id="repo-path-status"></p>
+        <p class="muted">writes the collection to <code>ui/movies.json</code> in your shelf git repo and pushes it — that's what your phone's read-only browse page shows.</p>
+        <p class="muted" id="publish-status"></p>
       </div>
 
       <div class="menu-section">

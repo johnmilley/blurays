@@ -1,6 +1,8 @@
-// Storage adapter. Under Tauri every call goes to the Rust/SQLite backend;
-// in the browser (PWA) the collection lives in localStorage. Both sides
-// expose the same movie shape:
+// Storage adapter. Under Tauri every call goes to the Rust/SQLite backend —
+// the only runtime that can write. The browser/PWA side is read-only: it's
+// a static page fed by ui/movies.json, which the desktop app publishes (see
+// the "mobile web view" menu section and src-tauri/src/publish.rs). Both
+// sides expose the same movie shape:
 //   { id, title, year, format, barcode, poster, director, runtime,
 //     notes, watched, added_at }
 
@@ -8,67 +10,51 @@ export const isTauri = !!window.__TAURI__;
 
 const invoke = isTauri ? window.__TAURI__.core.invoke : null;
 
-const MOVIES_KEY = "shelf.movies.v1";
-const SETTINGS_KEY = "shelf.settings.v1";
-
-function webLoad() {
+export async function listMovies() {
+  if (isTauri) return invoke("list_movies");
   try {
-    return JSON.parse(localStorage.getItem(MOVIES_KEY) || "[]");
+    const res = await fetch("./movies.json", { cache: "no-store" });
+    return res.ok ? await res.json() : [];
   } catch {
     return [];
   }
 }
 
-function webSave(movies) {
-  localStorage.setItem(MOVIES_KEY, JSON.stringify(movies));
-}
-
-function webSettings() {
-  try {
-    return JSON.parse(localStorage.getItem(SETTINGS_KEY) || "{}");
-  } catch {
-    return {};
-  }
-}
-
-export async function listMovies() {
-  if (isTauri) return invoke("list_movies");
-  return webLoad();
-}
-
 export async function addMovie(movie) {
   movie.added_at = new Date().toISOString();
-  if (isTauri) return invoke("add_movie", { movie });
-  const movies = webLoad();
-  movie.id = crypto.randomUUID();
-  movies.push(movie);
-  webSave(movies);
-  return movie;
+  return invoke("add_movie", { movie });
 }
 
 export async function updateMovie(movie) {
-  if (isTauri) return invoke("update_movie", { movie });
-  const movies = webLoad();
-  const i = movies.findIndex((m) => m.id === movie.id);
-  if (i >= 0) movies[i] = movie;
-  webSave(movies);
+  return invoke("update_movie", { movie });
 }
 
 export async function deleteMovie(id) {
-  if (isTauri) return invoke("delete_movie", { id });
-  webSave(webLoad().filter((m) => m.id !== id));
+  return invoke("delete_movie", { id });
 }
 
 export async function getSetting(key) {
-  if (isTauri) return invoke("get_setting", { key });
-  return webSettings()[key] ?? null;
+  return invoke("get_setting", { key });
 }
 
 export async function setSetting(key, value) {
-  if (isTauri) return invoke("set_setting", { key, value });
-  const s = webSettings();
-  s[key] = value;
-  localStorage.setItem(SETTINGS_KEY, JSON.stringify(s));
+  return invoke("set_setting", { key, value });
+}
+
+// ------------------------------------------------------- publish to phone
+
+/** Desktop only: opens a native folder picker and saves the choice as the
+ * repo path used by publish(). */
+export async function pickRepoFolder() {
+  const path = await window.__TAURI__.dialog.open({ directory: true, multiple: false });
+  if (!path) return null;
+  await setSetting("repo_path", path);
+  return path;
+}
+
+/** Desktop only: writes ui/movies.json in the repo and git push'es it. */
+export async function publish() {
+  return invoke("publish_to_repo");
 }
 
 // ---------------------------------------------------------- phone scanning

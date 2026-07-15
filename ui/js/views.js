@@ -50,14 +50,24 @@ export function renderList(container, movies, { onOpen, onToggleWatched }) {
     const row = el("div", "row");
 
     const watch = el("button", `row-watch ${movie.watched ? "watched" : "unwatched"}`);
-    watch.title = movie.watched ? "watched — click to mark unwatched" : "unwatched — click to mark watched";
-    watch.addEventListener("click", (e) => {
-      e.stopPropagation();
-      onToggleWatched(movie);
-    });
+    if (onToggleWatched) {
+      watch.title = movie.watched ? "watched — click to mark unwatched" : "unwatched — click to mark watched";
+      watch.addEventListener("click", (e) => {
+        e.stopPropagation();
+        onToggleWatched(movie);
+      });
+    } else {
+      watch.title = movie.watched ? "watched" : "unwatched";
+      watch.tabIndex = -1;
+      watch.style.cursor = "default";
+    }
+
+    const thumb = el("div", "row-poster");
+    thumb.append(posterEl(movie));
 
     row.append(
       watch,
+      thumb,
       el("span", "row-title", movie.title),
       el("span", "row-year", movie.year ?? ""),
       badge(movie.format),
