@@ -29,13 +29,81 @@ export function guessFormat(text) {
   return null;
 }
 
-/** Strip format/packaging noise from a UPC product title so it can be used
- * as a search query: "The Matrix (4K Ultra HD + Blu-ray + Digital) [2018]". */
+// Phrases that only ever show up as retail-feed noise, never as part of an
+// actual movie title: packaging/format, studios/distributors (as they
+// appear in UPC product-title text, not their official names), retailer
+// exclusives, and condition/shipping filler.
+// Order matters: regex alternation takes the first alternative that matches
+// at a position, not the longest, so multi-word phrases must come before
+// any shorter/generic word they contain (e.g. "new line cinema" before
+// bare "new", or it'd match just "new" and strand "line cinema").
+const NOISE_PHRASES = [
+  "4k", "uhd", "ultra\\s*hd", "blu-?ray", "dvd", "digital(?:\\s+copy|\\s+hd|\\s+code)?",
+  "steelbook", "widescreen", "full\\s*screen", "special edition",
+  "collector'?s edition", "anniversary edition", "combo pack",
+  "\\d+[- ]disc(s)?", "region \\w+",
+
+  "warner\\s*bros\\.?(?:\\s+home\\s+video|\\s+pictures)?",
+  "warner\\s+home\\s+video",
+  "universal(?:\\s+pictures|\\s+studios)?(?:\\s+home\\s+entertainment)?",
+  "sony\\s+pictures(?:\\s+home\\s+entertainment)?",
+  "paramount(?:\\s+pictures|\\s+home\\s+entertainment)?",
+  "20th\\s+century\\s+(?:fox|studios)",
+  "twentieth\\s+century\\s+fox",
+  "walt\\s+disney(?:\\s+studios|\\s+pictures|\\s+home\\s+entertainment)?",
+  "buena\\s+vista(?:\\s+home\\s+entertainment|\\s+pictures)?",
+  "metro[- ]goldwyn[- ]mayer", "mgm",
+  "lions?\\s*gate",
+  "new\\s+line(?:\\s+cinema)?",
+  "focus\\s+features",
+  "miramax",
+  "dreamworks|dream\\s+works",
+  "columbia(?:\\s+pictures)?",
+  "tristar",
+  "orion(?:\\s+pictures)?",
+  "a24",
+  "criterion(?:\\s+collection)?",
+  "magnolia(?:\\s+pictures|\\s+home\\s+entertainment)?",
+  "ifc\\s+films",
+  "well\\s+go\\s+usa",
+  "shout\\s+factory|scream\\s+factory",
+  "kino\\s+lorber",
+  "arrow\\s+(?:video|films)",
+  "vinegar\\s+syndrome",
+  "rlje?(?:\\s+films)?",
+  "entertainment\\s+one|e-?one",
+  "studiocanal",
+  "bbc(?:\\s+home\\s+entertainment)?",
+  "hbo",
+  "weinstein(?:\\s+company)?",
+
+  "(?:target|walmart|best\\s*buy|amazon)\\s+exclusive",
+  "exclusive\\s+edition",
+  "exclusive",
+
+  "brand\\s+new", "factory\\s+sealed", "free\\s+shipping", "fast\\s+shipping",
+  "ships?\\s+(?:fast|free|same\\s+day)", "authentic", "genuine", "official",
+  "licensed", "ex[- ]rental",
+];
+const NOISE_RE = new RegExp(`\\b(?:${NOISE_PHRASES.join("|")})\\b`, "gi");
+
+/** Strip format/packaging/studio/retailer noise from a UPC product title so
+ * it can be used as a search query: retail feeds tend to read "The Matrix
+ * (4K Ultra HD + Blu-ray + Digital) - Warner Bros. Pictures NEW SEALED". */
 export function cleanTitle(text) {
   return text
     .replace(/[([{][^)\]}]*[)\]}]/g, " ") // bracketed junk
-    .replace(/\b(4k|uhd|ultra\s*hd|blu-?ray|dvd|digital|steelbook|widescreen|full\s*screen|special edition|collector'?s edition|anniversary edition|combo pack|\d+[- ]disc(s)?|region \w+|new|sealed)\b/gi, " ")
-    .replace(/[+/|·-]+\s*$/g, " ")
+    .replace(/\s[-–—]\s.*$/, " ") // retail feeds append format/edition/studio after a spaced dash
+    .replace(/[|•].*$/, " ") // …or after a pipe / bullet separator
+    .replace(NOISE_RE, " ")
+    // bare "new"/"sealed" are condition words in retail feeds, but also
+    // real title words ("New Jack City") — only strip them when they're
+    // not the first word, so a leading one is left alone. \s+ (not \s) in
+    // the lookbehind because earlier replacements above can leave runs of
+    // multiple spaces where brackets/phrases used to be.
+    .replace(/(?<=\S\s+)\b(?:new|sealed)\b/gi, " ")
+    .replace(/^[+/|·,:;-]+\s*/, "")
+    .replace(/[+/|·,:;-]+\s*$/g, " ")
     .replace(/\s{2,}/g, " ")
     .trim();
 }
