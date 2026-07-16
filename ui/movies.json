@@ -12,6 +12,7 @@
     "overview": "An average family is thrust into the spotlight after the father commits a seemingly self-defense murder at his diner.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:43:46.182Z"
   },
   {
@@ -27,6 +28,7 @@
     "overview": "A unique fusion of blue chip natural history and earth science that explains how our living planet operates. This five-part series shows how the forces of nature drive, shape and support Earth’s great diversity of wildlife.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T13:44:05.973Z"
   },
   {
@@ -41,7 +43,8 @@
     "genres": "Drama, Romance, Fantasy",
     "overview": "When young dockworker Jude leaves Liverpool to find his estranged father in the United States, he is swept up by the waves of change that are re-shaping the nation. Jude falls in love with Lucy, who joins the growing anti-war movement. As the body count in Vietnam rises, political tensions at home spiral out of control and the star-crossed lovers find themselves in a psychedelic world gone mad.",
     "notes": "",
-    "watched": false,
+    "watched": true,
+    "last_watched": null,
     "added_at": "2026-07-16T00:07:04.064Z"
   },
   {
@@ -57,6 +60,7 @@
     "overview": "It's the summer of 1987, and recent college grad James Brennan can't wait to begin his long-anticipated dream trip to Europe. Unfortunately, James' plans come to a screeching halt when his parents announce that they are unable to subsidize his trip. Forced to take a job at the local amusement park, James prepares for the worst summer ever, until he finds love with a captivating co-worker named Em.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:07:08.982Z"
   },
   {
@@ -71,7 +75,8 @@
     "genres": "Drama, Romance, History",
     "overview": "In Imperial Russia, Anna, wife of the officer Karenin, goes to Moscow to visit her brother. On the way, she meets charming cavalry officer Vronsky, to whom she's immediately attracted. But in St. Petersburg’s high society, a relationship like this could destroy a woman’s reputation.",
     "notes": "",
-    "watched": false,
+    "watched": true,
+    "last_watched": null,
     "added_at": "2026-07-16T00:37:43.744Z"
   },
   {
@@ -86,7 +91,8 @@
     "genres": "Comedy, Drama",
     "overview": "In an American desert town circa 1955, the itinerary of a Junior Stargazer/Space Cadet convention is spectacularly disrupted by world-changing events.",
     "notes": "",
-    "watched": false,
+    "watched": true,
+    "last_watched": null,
     "added_at": "2026-07-16T13:36:36.009Z"
   },
   {
@@ -101,7 +107,8 @@
     "genres": "Drama, Romance, Comedy",
     "overview": "Oliver meets the irreverent and unpredictable Anna only months after his father Hal Fields has passed away. This new love floods Oliver with memories of his father, who, following the death of his wife of 44 years, came out of the closet at age 75 to live a full, energized, and wonderfully tumultuous gay life – which included a younger boyfriend.",
     "notes": "",
-    "watched": false,
+    "watched": true,
+    "last_watched": null,
     "added_at": "2026-07-16T00:49:33.940Z"
   },
   {
@@ -116,7 +123,8 @@
     "genres": "Action, Adventure, Comedy, Fantasy",
     "overview": "Truck driver Jack Burton gets embroiled in a supernatural battle when his best friend Wang Chi's green-eyed fiancée is kidnapped by henchmen of the sorcerer Lo Pan, who must marry a girl with green eyes in order to return to the human realm.",
     "notes": "",
-    "watched": false,
+    "watched": true,
+    "last_watched": null,
     "added_at": "2026-07-15T20:19:55.360Z"
   },
   {
@@ -132,6 +140,7 @@
     "overview": "Harley Quinn joins forces with a singer, an assassin and a police detective to help a young girl who had a hit placed on her after she stole a rare diamond from a crime lord.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-15T19:54:55.924Z"
   },
   {
@@ -146,7 +155,8 @@
     "genres": "Drama",
     "overview": "A young woman is forced to confront her own feelings of grief and confusion after the death of a friend.",
     "notes": "",
-    "watched": false,
+    "watched": true,
+    "last_watched": null,
     "added_at": "2026-07-16T13:48:16.426Z"
   },
   {
@@ -161,7 +171,8 @@
     "genres": "Action, Adventure, Science Fiction",
     "overview": "After the cataclysmic events in New York with The Avengers, Steve Rogers, aka Captain America is living quietly in Washington, D.C. and trying to adjust to the modern world. But when a S.H.I.E.L.D. colleague comes under attack, Steve becomes embroiled in a web of intrigue that threatens to put the world at risk. Joining forces with the Black Widow, Captain America struggles to expose the ever-widening conspiracy while fighting off professional assassins sent to silence him at every turn. When the full scope of the villainous plot is revealed, Captain America and the Black Widow enlist the help of a new ally, the Falcon. However, they soon find themselves up against an unexpected and formidable enemy—the Winter Soldier.",
     "notes": "no slip",
-    "watched": false,
+    "watched": true,
+    "last_watched": null,
     "added_at": "2026-07-15T19:39:29.387Z"
   },
   {
@@ -177,6 +188,7 @@
     "overview": "Siblings Lucy, Edmund, Susan and Peter step through a magical wardrobe and find the land of Narnia. There, they discover a charming, once peaceful kingdom that has been plunged into eternal winter by the evil White Witch, Jadis. Aided by the wise and magnificent lion, Aslan, the children lead Narnia into a spectacular, climactic battle to be free of the Witch's glacial powers forever.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:51:45.691Z"
   },
   {
@@ -192,6 +204,7 @@
     "overview": "A set of six nested stories spanning time between the 19th century and a distant post-apocalyptic future. Cloud Atlas explores how the actions and consequences of individual lives impact one another throughout the past, the present and the future. Action, mystery and romance weave through the story as one soul is shaped from a killer into a hero and a single act of kindness ripples across centuries to inspire a revolution in the distant future.  Based on the award winning novel by David Mitchell. Directed by Tom Tykwer and the Wachowskis.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T11:45:05.546Z"
   },
   {
@@ -207,6 +220,7 @@
     "overview": "Caius Martius, aka Coriolanus, is an arrogant and fearsome general who has built a career on protecting Rome from its enemies. Pushed by his ambitious mother to seek the position of consul, Coriolanus is at odds with the masses and unpopular with certain colleagues. When a riot results in his expulsion from Rome, Coriolanus seeks out his sworn enemy, Tullus Aufidius. Together, the pair vow to destroy the great city.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-15T19:40:06.617Z"
   },
   {
@@ -221,7 +235,8 @@
     "genres": "Comedy",
     "overview": "Lloyd and Harry are two men whose stupidity is really indescribable. When Mary, a beautiful woman, loses an important suitcase with money before she leaves for Aspen, the two friends (who have found the suitcase) decide to return it to her. After some \"adventures\" they finally get to Aspen where, using the lost money they live it up and fight for Mary's heart.",
     "notes": "",
-    "watched": false,
+    "watched": true,
+    "last_watched": null,
     "added_at": "2026-07-15T19:48:11.460Z"
   },
   {
@@ -237,6 +252,7 @@
     "overview": "A charming thief and a band of unlikely adventurers undertake an epic heist to retrieve a lost relic, but things go dangerously awry when they run afoul of the wrong people.",
     "notes": "",
     "watched": true,
+    "last_watched": null,
     "added_at": "2026-07-14T20:57:14.035Z"
   },
   {
@@ -251,7 +267,8 @@
     "genres": "War, Action, Drama",
     "overview": "The story of the miraculous evacuation of Allied soldiers from Belgium, Britain, Canada and France, who were cut off and surrounded by the German army from the beaches and harbour of Dunkirk between May 26th and June 4th 1940 during World War II.",
     "notes": "",
-    "watched": false,
+    "watched": true,
+    "last_watched": null,
     "added_at": "2026-07-16T00:09:35.283Z"
   },
   {
@@ -266,7 +283,8 @@
     "genres": "Comedy, Family, Fantasy, Romance",
     "overview": "The beautiful princess Giselle is banished by an evil queen from her magical, musical animated land and finds herself in the gritty reality of the streets of modern-day Manhattan. Shocked by this strange new environment that doesn't operate on a \"happily ever after\" basis, Giselle is now adrift in a chaotic world badly in need of enchantment. But when Giselle begins to fall in love with a charmingly flawed divorce lawyer who has come to her aid - even though she is already promised to a perfect fairy tale prince back home - she has to wonder: Can a storybook view of romance survive in the real world?",
     "notes": "",
-    "watched": false,
+    "watched": true,
+    "last_watched": null,
     "added_at": "2026-07-16T00:31:47.850Z"
   },
   {
@@ -282,6 +300,7 @@
     "overview": "Long-lost footage from Elvis Presley's legendary Las Vegas residency in the 1970s woven together with rare 16mm footage from Elvis on Tour, and 8mm from the Graceland archive, plus recordings of Elvis telling \"his side of the story\" rediscovered during Baz Luhrmann's research for his 2022 film, Elvis.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:55:12.661Z"
   },
   {
@@ -297,6 +316,7 @@
     "overview": "After Dr. Bill Harford's wife, Alice, admits to having sexual fantasies about a man she met, Bill becomes obsessed with having a sexual encounter. He discovers an underground sexual group and attends one of their meetings -- and quickly discovers that he is in over his head.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T13:37:44.387Z"
   },
   {
@@ -311,7 +331,8 @@
     "genres": "Drama, Thriller",
     "overview": "A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. Their concept catches on, with underground \"fight clubs\" forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.",
     "notes": "",
-    "watched": false,
+    "watched": true,
+    "last_watched": null,
     "added_at": "2026-07-16T13:54:00.539Z"
   },
   {
@@ -327,6 +348,7 @@
     "overview": "April, 1945. As the Allies make their final push in the European Theatre, a battle-hardened army sergeant named Wardaddy commands a Sherman tank and her five-man crew on a deadly mission behind enemy lines. Outnumbered and outgunned, and with a rookie soldier thrust into their platoon, Wardaddy and his men face overwhelming odds in their heroic attempts to strike at the heart of Nazi Germany.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-15T19:39:57.120Z"
   },
   {
@@ -341,7 +363,8 @@
     "genres": "Music",
     "overview": "Mr. Carpool (Oscar Isaac) wanders around the freeways of Los Angeles, making ends meet by offering his services as an extra passenger so they can drive in the carpooling lane.",
     "notes": "",
-    "watched": false,
+    "watched": true,
+    "last_watched": null,
     "added_at": "2026-07-16T13:48:09.660Z"
   },
   {
@@ -357,6 +380,7 @@
     "overview": "The powerful story of love and loss that inspired the creation of Shakespeare's timeless masterpiece, Hamlet.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:23:04.344Z"
   },
   {
@@ -371,7 +395,8 @@
     "genres": "Crime, Drama, Action",
     "overview": "Obsessive master thief Neil McCauley leads a top-notch crew on various daring heists throughout Los Angeles while determined detective Vincent Hanna pursues him without rest. Each man recognizes and respects the ability and the dedication of the other even though they are aware their cat-and-mouse game may end in violence.",
     "notes": "",
-    "watched": false,
+    "watched": true,
+    "last_watched": null,
     "added_at": "2026-07-16T11:46:33.576Z"
   },
   {
@@ -386,7 +411,8 @@
     "genres": "Adventure, Drama, Action",
     "overview": "In 9th century China, a corrupt government wages war against a rebel army called the Flying Daggers. A romantic warrior breaks a beautiful rebel out of prison to help her rejoin her fellows, but things are not what they seem.",
     "notes": "",
-    "watched": false,
+    "watched": true,
+    "last_watched": null,
     "added_at": "2026-07-15T19:34:22.193Z"
   },
   {
@@ -401,7 +427,8 @@
     "genres": "Drama, Thriller, War",
     "overview": "In Nazi-occupied France during World War II, a group of Jewish-American soldiers known as \"The Basterds\" are chosen specifically to spread fear throughout the Third Reich by scalping and brutally killing Nazis. The Basterds, lead by Lt. Aldo Raine soon cross paths with a French-Jewish teenage girl who runs a movie theater in Paris which is targeted by the soldiers.",
     "notes": "",
-    "watched": false,
+    "watched": true,
+    "last_watched": null,
     "added_at": "2026-07-16T13:48:53.000Z"
   },
   {
@@ -416,7 +443,8 @@
     "genres": "Horror, Thriller, Drama",
     "overview": "In a small town in Maine, seven children known as The Losers Club come face to face with life problems, bullies and a monster that takes the shape of a clown called Pennywise.",
     "notes": "",
-    "watched": false,
+    "watched": true,
+    "last_watched": null,
     "added_at": "2026-07-16T00:33:23.180Z"
   },
   {
@@ -432,6 +460,7 @@
     "overview": "After his wife dies, a blacksmith named Balian is thrust into royalty, political intrigue and bloody holy wars during the Crusades.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-15T19:44:31.730Z"
   },
   {
@@ -447,6 +476,7 @@
     "overview": "Orphaned heiress, English aristocrat and intrepid archaeologist, Lara Croft, embarks on a dangerous quest to retrieve the two halves of an ancient artifact which controls time before it falls into the wrong hands. As an extremely rare planetary alignment is about to occur for the first time in 5,000 years, the fearless tomb raider will have to team up with rival adventurers and sworn enemies to collect the pieces, while time is running out. But, in the end, who can harness the archaic talisman's unlimited power?",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T13:38:51.460Z"
   },
   {
@@ -461,7 +491,8 @@
     "genres": "Comedy, Romance, Drama",
     "overview": "Eight very different couples deal with their love lives in various loosely interrelated tales all set during a frantic month before Christmas in London.",
     "notes": "",
-    "watched": false,
+    "watched": true,
+    "last_watched": null,
     "added_at": "2026-07-16T00:54:23.151Z"
   },
   {
@@ -477,6 +508,7 @@
     "overview": "After being set-up and betrayed by the man who hired him to assassinate a Texas Senator, an ex-Federale launches a brutal rampage of revenge against his former boss.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:54:41.673Z"
   },
   {
@@ -491,7 +523,8 @@
     "genres": "Action, Adventure, Science Fiction",
     "overview": "An apocalyptic story set in the furthest reaches of our planet, in a stark desert landscape where humanity is broken, and most everyone is crazed fighting for the necessities of life. Within this world exist two rebels on the run who just might be able to restore order.",
     "notes": "",
-    "watched": false,
+    "watched": true,
+    "last_watched": null,
     "added_at": "2026-07-16T00:19:00.231Z"
   },
   {
@@ -507,6 +540,7 @@
     "overview": "A young boy learns that he has extraordinary powers and is not of this earth. As a young man, he journeys to discover where he came from and what he was sent here to do. But the hero in him must emerge if he is to save the world from annihilation and become the symbol of hope for all mankind.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:43:51.837Z"
   },
   {
@@ -522,6 +556,7 @@
     "overview": "Joe Buck is a wide-eyed hustler from Texas hoping to score big with wealthy New York City women; he finds a companion in Enrico \"Ratso\" Rizzo, an ailing swindler with a bum leg and a quixotic fantasy of escaping to Florida.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:07:21.262Z"
   },
   {
@@ -536,7 +571,8 @@
     "genres": "Fantasy, Comedy, Romance",
     "overview": "While on a trip to Paris with his fiancée's family, a nostalgic screenwriter finds himself mysteriously going back to the 1920s every day at midnight.",
     "notes": "",
-    "watched": false,
+    "watched": true,
+    "last_watched": null,
     "added_at": "2026-07-16T13:53:35.188Z"
   },
   {
@@ -552,6 +588,7 @@
     "overview": "Life's questions are 'answered' in a series of outrageous vignettes, beginning with a staid London insurance company which transforms before our eyes into a pirate ship. Then there's the National Health doctors who try to claim a healthy liver from a still-living donor. The world's most voracious glutton brings the art of vomiting to new heights before his spectacular demise.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-15T19:59:11.102Z"
   },
   {
@@ -566,7 +603,8 @@
     "genres": "Crime, Drama, Thriller",
     "overview": "When Lou Bloom, desperate for work, muscles into the world of L.A. crime journalism, he blurs the line between observer and participant to become the star of his own story. Aiding him in his effort is Nina, a TV-news veteran.",
     "notes": "",
-    "watched": false,
+    "watched": true,
+    "last_watched": null,
     "added_at": "2026-07-15T19:59:19.734Z"
   },
   {
@@ -581,7 +619,8 @@
     "genres": "Thriller, Crime, Comedy",
     "overview": "Washed-up revolutionary Bob exists in a state of stoned paranoia, surviving off-grid with his spirited, self-reliant daughter, Willa. When his evil nemesis resurfaces after 16 years and she goes missing, the former radical scrambles to find her, father and daughter both battling the consequences of his past.",
     "notes": "",
-    "watched": false,
+    "watched": true,
+    "last_watched": null,
     "added_at": "2026-07-16T00:54:02.355Z"
   },
   {
@@ -597,6 +636,7 @@
     "overview": "When wily pirate Captain Barbossa seizes Jack Sparrow’s beloved ship, the Black Pearl, and kidnaps the governor’s daughter, Elizabeth Swann, blacksmith Will Turner reluctantly teams up with the unpredictable pirate Jack to rescue her—only to uncover a terrifying curse that turns Barbossa’s crew into the undead.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T13:50:24.841Z"
   },
   {
@@ -612,6 +652,7 @@
     "overview": "Journeying to the far reaches of our planet, this eight part series follows some of the world's most amazing species, telling extraordinary stories that are dramatic, thrilling, funny and sometimes heart-breaking, but always full of hope.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T13:43:58.996Z"
   },
   {
@@ -627,6 +668,7 @@
     "overview": "On the gritty streets of LA, the destinies of four people desperate for connection and redemption are about to collide.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T13:47:04.524Z"
   },
   {
@@ -642,6 +684,7 @@
     "overview": "A burger-loving hit man, his philosophical partner, a drug-addled gangster's moll and a washed-up boxer converge in this sprawling, comedic crime caper. Their adventures unfurl in three stories that ingeniously trip back and forth in time.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:07:13.422Z"
   },
   {
@@ -657,6 +700,7 @@
     "overview": "Long before he even met Shrek, the notorious fighter, lover and outlaw Puss in Boots becomes a hero when he sets off on an adventure with the tough and street smart Kitty Softpaws and the mastermind Humpty Dumpty to save his town. This is the true story of The Cat, The Myth, The Legend... The Boots.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:46:44.057Z"
   },
   {
@@ -672,6 +716,7 @@
     "overview": "A botched robbery indicates a police informant, and the pressure mounts in the aftermath at a warehouse. Crime begets violence as the survivors -- veteran Mr. White, newcomer Mr. Orange, psychopathic parolee Mr. Blonde, bickering weasel Mr. Pink and Nice Guy Eddie -- unravel.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T13:45:38.971Z"
   },
   {
@@ -687,6 +732,7 @@
     "overview": "A war-hardened Crusader and his Moorish commander mount an audacious revolt against the corrupt English crown.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-15T19:40:24.010Z"
   },
   {
@@ -702,6 +748,7 @@
     "overview": "Rocky Balboa is a Philadelphia club fighter who seems to be going nowhere. But when a stroke of fate puts him in the ring with a world heavyweight champion, Rocky knows that it's his one shot at the big time — a once-in-a-lifetime opportunity to go the distance and come out a winner!",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-15T20:19:49.235Z"
   },
   {
@@ -717,6 +764,7 @@
     "overview": "Tato and Beto are poor stepbrothers living on a banana plantation in Mexico. Both are talented soccer players, but their dreams lay elsewhere: tone-deaf Tato wants to be a singer, while Beto is content to remain on the plantation. One day, a sports agent sees the two young men playing soccer and offers to take one of them to Mexico City for a chance at sports stardom.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:53:44.143Z"
   },
   {
@@ -732,6 +780,7 @@
     "overview": "A group of rebels travel the outskirts of space evading the sinister Alliance regime. Their lives of smuggling and cargo-running are interrupted by a psychic passenger who harbours a dangerous secret. Soon, the crew find themselves being pursued by an Alliance agent who will stop at nothing to find them.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-15T19:33:56.025Z"
   },
   {
@@ -747,6 +796,7 @@
     "overview": "Shang-Chi must confront the past he thought he left behind when he is drawn into the web of the mysterious Ten Rings organization.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-15T19:39:22.877Z"
   },
   {
@@ -762,6 +812,7 @@
     "overview": "Through a series of daring escapades deep within a dark and dangerous criminal underworld, Han Solo meets his mighty future copilot Chewbacca and encounters the notorious gambler Lando Calrissian.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:51:22.062Z"
   },
   {
@@ -777,6 +828,7 @@
     "overview": "The rebellious Thracian Spartacus, born and raised a slave, is sold to Gladiator trainer Batiatus. After weeks of being trained to kill for the arena, Spartacus turns on his owners and leads the other slaves in rebellion. As the rebels move from town to town, their numbers swell as escaped slaves join their ranks. Under the leadership of Spartacus, they make their way to southern Italy, where they will cross the sea and return to their homes.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:50:49.144Z"
   },
   {
@@ -792,6 +844,7 @@
     "overview": "A hack screenwriter writes a screenplay for a former silent film star who has faded into Hollywood obscurity.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T13:46:50.342Z"
   },
   {
@@ -807,6 +860,7 @@
     "overview": "Superman, a journalist in Metropolis, embarks on a journey to reconcile his Kryptonian heritage with his human upbringing as Clark Kent.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:55:58.147Z"
   },
   {
@@ -822,6 +876,7 @@
     "overview": "Armed with only one word - Tenet - and fighting for the survival of the entire world, the Protagonist journeys through a twilight world of international espionage on a mission that will unfold in something beyond real time.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:07:43.157Z"
   },
   {
@@ -837,6 +892,7 @@
     "overview": "Ten years after the events of the original, a reprogrammed T-800 is sent back in time to protect young John Connor from the shape-shifting T-1000. Together with his mother Sarah, he fights to stop Skynet from triggering a nuclear apocalypse.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:41:32.306Z"
   },
   {
@@ -852,6 +908,7 @@
     "overview": "It's been 10 years since John Connor saved Earth from Judgment Day, and he's now living under the radar, steering clear of using anything Skynet can trace. That is, until he encounters T-X, a robotic assassin ordered to finish what T-1000 started. Good thing Connor's former nemesis, the Terminator, is back to aid the now-adult Connor … just like he promised.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T13:15:27.433Z"
   },
   {
@@ -867,6 +924,7 @@
     "overview": "All grown up in post-apocalyptic 2018, John Connor must lead the resistance of humans against the increasingly dominating militaristic robots. But when Marcus Wright appears, his existence confuses the mission as Connor tries to determine whether Wright has come from the future or the past -- and whether he's friend or foe.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T13:38:06.740Z"
   },
   {
@@ -882,6 +940,7 @@
     "overview": "Peter Parker is an outcast high schooler abandoned by his parents as a boy, leaving him to be raised by his Uncle Ben and Aunt May. Like most teenagers, Peter is trying to figure out who he is and how he got to be the person he is today. As Peter discovers a mysterious briefcase that belonged to his father, he begins a quest to understand his parents' disappearance – leading him directly to Oscorp and the lab of Dr. Curt Connors, his father's former partner. As Spider-Man is set on a collision course with Connors' alter ego, The Lizard, Peter will make life-altering choices to use his powers and shape his destiny to become a hero.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-15T19:48:01.997Z"
   },
   {
@@ -897,6 +956,7 @@
     "overview": "For Peter Parker, life is busy. Between taking out the bad guys as Spider-Man and spending time with the person he loves, Gwen Stacy, high school graduation cannot come quickly enough. Peter has not forgotten about the promise he made to Gwen’s father to protect her by staying away, but that is a promise he cannot keep. Things will change for Peter when a new villain, Electro, emerges, an old friend, Harry Osborn, returns, and Peter uncovers new clues about his past.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:27:10.294Z"
   },
   {
@@ -912,6 +972,7 @@
     "overview": null,
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:40:40.482Z"
   },
   {
@@ -927,6 +988,7 @@
     "overview": "In his second year of fighting crime, Batman uncovers corruption in Gotham City that connects to his own family while facing a serial killer known as the Riddler.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:18:51.686Z"
   },
   {
@@ -942,6 +1004,7 @@
     "overview": "A headstrong Chinese-American woman returns to China when her beloved grandmother is given a terminal diagnosis. Billi struggles with her family's decision to keep grandma in the dark about her own illness as they all stage an impromptu wedding to see grandma one last time.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:13:58.412Z"
   },
   {
@@ -957,6 +1020,7 @@
     "overview": "In 2257, a taxi driver is unintentionally given the task of saving a young girl who is part of the key that will ensure the survival of humanity.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:28:47.057Z"
   },
   {
@@ -972,6 +1036,7 @@
     "overview": "The staff of an American magazine based in France puts out its last issue, with stories featuring an artist sentenced to life imprisonment, student riots, and a kidnapping resolved by a chef.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T13:48:21.585Z"
   },
   {
@@ -987,6 +1052,7 @@
     "overview": "Disgraced journalist Mikael Blomkvist investigates the disappearance of a weary patriarch's niece from 40 years ago. He is aided by the pierced, tattooed, punk computer hacker named Lisbeth Salander. As they work together in the investigation, Blomkvist and Salander uncover immense corruption beyond anything they have ever imagined.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T11:56:36.778Z"
   },
   {
@@ -1002,6 +1068,7 @@
     "overview": null,
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:56:35.288Z"
   },
   {
@@ -1017,6 +1084,7 @@
     "overview": "An oppressed Mexican peasant village hires seven gunfighters to help defend their homes.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:44:05.230Z"
   },
   {
@@ -1032,6 +1100,7 @@
     "overview": "Prince Amleth is on the verge of becoming a man when his father is brutally murdered by his uncle, who kidnaps the boy's mother. Two decades later, Amleth is now a Viking who's on a mission to save his mother, kill his uncle and avenge his father.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:48:55.792Z"
   },
   {
@@ -1047,6 +1116,7 @@
     "overview": "Deep in the heart of Jakarta's slums lies an impenetrable safe house for the world's most dangerous killers and gangsters. Until now, the run-down apartment block has been considered untouchable to even the bravest of police. Cloaked under the cover of pre-dawn darkness and silence, an elite swat team is tasked with raiding the safe house in order to take down the notorious drug lord that runs it.  But when a chance encounter with a spotter blows their cover and news of their assault reaches the drug lord, the building's lights are cut and all the exits blocked. Stranded on the sixth floor with no way out, the unit must fight their way through the city's worst to survive their mission. Starring Indonesian martial arts sensation Iko Uwais.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:43:56.749Z"
   },
   {
@@ -1062,6 +1132,7 @@
     "overview": "Supervillains Harley Quinn, Bloodsport, Peacemaker and a collection of nutty cons at Belle Reve prison join the super-secret, super-shady Task Force X as they are dropped off at the remote, enemy-infused island of Corto Maltese.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:42:42.547Z"
   },
   {
@@ -1077,6 +1148,7 @@
     "overview": "Escaping death, a Hebrew infant is raised in a royal household to become a prince. Upon discovery of his true heritage, Moses embarks on a personal quest to reclaim his destiny as the leader and liberator of the Hebrew people.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:33:43.542Z"
   },
   {
@@ -1092,6 +1164,7 @@
     "overview": "Wolverine faces his ultimate nemesis - and tests of his physical, emotional, and mortal limits - in a life-changing voyage to modern-day Japan.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:19:04.169Z"
   },
   {
@@ -1107,6 +1180,7 @@
     "overview": "\"This Is Spinal Tap\" shines a light on the self-contained universe of a metal band struggling to get back on the charts, including everything from its complicated history of ups and downs, gold albums, name changes and undersold concert dates, along with the full host of requisite groupies, promoters, hangers-on and historians, sessions, release events and those special behind-the-scenes moments that keep it all real.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:51:31.306Z"
   },
   {
@@ -1122,6 +1196,7 @@
     "overview": "A criminal organization has obtained two nuclear bombs and are asking for a 100 million pound ransom in the form of diamonds in seven days or they will use the weapons. The secret service sends James Bond to the Bahamas to once again save the world.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:07:17.207Z"
   },
   {
@@ -1137,6 +1212,7 @@
     "overview": "101-year-old Rose DeWitt Bukater tells the story of her life aboard the Titanic, 84 years later. A young Rose boards the ship with her mother and fiancé. Meanwhile, Jack Dawson and Fabrizio De Rossi win third-class tickets aboard the ship. Rose tells the whole story from Titanic's departure through to its death—on its first and last voyage—on April 15, 1912.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T13:48:26.784Z"
   },
   {
@@ -1152,6 +1228,7 @@
     "overview": "Lara Croft, the fiercely independent daughter of a missing adventurer, must push herself beyond her limits when she finds herself on the island where her father disappeared.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-15T20:00:58.590Z"
   },
   {
@@ -1167,6 +1244,7 @@
     "overview": "The Autobots continue to work for NEST, now no longer in secret. But after discovering a strange artifact during a mission in Chernobyl, it becomes apparent to Optimus Prime that the United States government has been less than forthright with them.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:26:08.885Z"
   },
   {
@@ -1182,22 +1260,8 @@
     "overview": "Sam Witwicky leaves the Autobots behind for a normal life. But when his mind is filled with cryptic symbols, the Decepticons target him and he is dragged back into the Transformers' war.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:14:14.639Z"
-  },
-  {
-    "id": 117,
-    "title": "unknown (31398140573)",
-    "year": null,
-    "format": "Blu-ray",
-    "barcode": "31398140573",
-    "poster": null,
-    "director": null,
-    "runtime": null,
-    "genres": null,
-    "overview": null,
-    "notes": "",
-    "watched": false,
-    "added_at": "2026-07-16T13:55:11.298Z"
   },
   {
     "id": 39,
@@ -1212,6 +1276,7 @@
     "overview": "In a world in which Great Britain has become a fascist state, a masked vigilante known only as “V” conducts guerrilla warfare against the oppressive British government. When V rescues a young woman from the secret police, he finds in her an ally with whom he can continue his fight to free the people of Britain.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:18:56.061Z"
   },
   {
@@ -1227,6 +1292,7 @@
     "overview": "The peaceful realm of Azeroth stands on the brink of war as its civilization faces a fearsome race of invaders: orc warriors fleeing their dying home to colonize another. As a portal opens to connect the two worlds, one army faces destruction and the other faces extinction. From opposing sides, two heroes are set on a collision course that will decide the fate of their family, their people, and their home.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-15T19:37:59.089Z"
   },
   {
@@ -1242,6 +1308,7 @@
     "overview": "In a gritty and alternate 1985, the glory days of costumed vigilantes have been brought to a close by a government crackdown. But after one of the masked veterans is brutally murdered, an investigation into the killer is initiated. The reunited heroes set out to prevent their own destruction, but in doing so they uncover a sinister plot that puts all of humanity in grave danger.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-15T19:38:35.237Z"
   },
   {
@@ -1257,6 +1324,7 @@
     "overview": "When all but one child from the same class mysteriously vanish on the same night at exactly the same time, a community is left questioning who or what is behind their disappearance.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T13:46:11.778Z"
   },
   {
@@ -1272,6 +1340,7 @@
     "overview": "The dazzling array of mysterious and wonderful creatures that live in China's most beautiful landscapes.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T13:39:48.344Z"
   },
   {
@@ -1287,6 +1356,7 @@
     "overview": "Follows the incredible stories of three 8th Air Force airmen and Stars & Stripes reporter Andy Rooney during the bloody year leading up to D-Day against the most powerful air force in the world, the German Luftwaffe.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:44:00.781Z"
   },
   {
@@ -1302,6 +1372,7 @@
     "overview": "When a cure is found to treat mutations, lines are drawn amongst the X-Men led by Professor Charles Xavier, and Magneto's Brotherhood of Mutants.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T11:45:32.893Z"
   },
   {
@@ -1317,6 +1388,7 @@
     "overview": "Determined to ensure Superman's ultimate sacrifice was not in vain, Bruce Wayne aligns forces with Diana Prince with plans to recruit a team of metahumans to protect the world from an approaching threat of catastrophic proportions.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:12:23.365Z"
   },
   {
@@ -1332,6 +1404,7 @@
     "overview": "Columbus has made a habit of running from what scares him. Tallahassee doesn't have fears. If he did, he'd kick their ever-living ass. In a world overrun by zombies, these two are perfectly evolved survivors. But now, they're about to stare down the most terrifying prospect of all: each other.",
     "notes": "",
     "watched": false,
+    "last_watched": null,
     "added_at": "2026-07-16T00:06:58.564Z"
   }
 ]
