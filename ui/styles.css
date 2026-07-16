@@ -445,6 +445,69 @@ body:not(.tauri) #titlebar-title {
   text-align: right;
 }
 
+/* text (detailed list) view */
+
+#text {
+  padding: 4px 0;
+}
+
+.text-row {
+  display: flex;
+  gap: 12px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  user-select: none;
+}
+
+.text-row:last-child {
+  border-bottom: none;
+}
+
+.text-row:hover {
+  background: var(--bg-hover);
+}
+
+.text-row .row-watch {
+  margin-top: 2px;
+}
+
+.text-row-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.text-row-head {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.text-row-title {
+  font-weight: 700;
+}
+
+.text-row-meta {
+  margin-top: 3px;
+  font-size: 0.85em;
+}
+
+.text-row-overview {
+  margin-top: 6px;
+  font-size: 0.85em;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.text-row-notes {
+  margin-top: 6px;
+  font-size: 0.85em;
+  font-style: italic;
+}
+
 /* ------------------------------------------------------------ statusbar */
 
 #statusbar {

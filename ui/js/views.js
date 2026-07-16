@@ -78,3 +78,44 @@ export function renderList(container, movies, { onOpen, onToggleWatched }) {
     container.append(row);
   }
 }
+
+/** Detailed text list — no cover art, one dense block per movie: title,
+ * year/runtime/director, genres, overview, notes. */
+export function renderText(container, movies, { onOpen, onToggleWatched }) {
+  container.replaceChildren();
+  for (const movie of movies) {
+    const row = el("div", "text-row");
+
+    const watch = el("button", `row-watch ${movie.watched ? "watched" : "unwatched"}`);
+    if (onToggleWatched) {
+      watch.title = movie.watched ? "watched — click to mark unwatched" : "unwatched — click to mark watched";
+      watch.addEventListener("click", (e) => {
+        e.stopPropagation();
+        onToggleWatched(movie);
+      });
+    } else {
+      watch.title = movie.watched ? "watched" : "unwatched";
+      watch.tabIndex = -1;
+      watch.style.cursor = "default";
+    }
+
+    const body = el("div", "text-row-body");
+
+    const head = el("div", "text-row-head");
+    head.append(el("span", "text-row-title", movie.title));
+    head.append(badge(movie.format));
+    body.append(head);
+
+    const meta = [movie.year, movie.runtime && `${movie.runtime} min`, movie.director]
+      .filter(Boolean)
+      .join(" · ");
+    if (meta) body.append(el("div", "text-row-meta muted", meta));
+    if (movie.genres) body.append(el("div", "text-row-meta muted", movie.genres));
+    if (movie.overview) body.append(el("div", "text-row-overview muted", movie.overview));
+    if (movie.notes) body.append(el("div", "text-row-notes muted", movie.notes));
+
+    row.append(watch, body);
+    row.addEventListener("click", () => onOpen(movie));
+    container.append(row);
+  }
+}

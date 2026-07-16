@@ -11,7 +11,7 @@ import {
   guessFormat,
   normalizeBarcode,
 } from "./lookup.js";
-import { renderGrid, renderList, posterEl } from "./views.js";
+import { renderGrid, renderList, renderText, posterEl } from "./views.js";
 
 const $ = (sel) => document.querySelector(sel);
 
@@ -86,10 +86,12 @@ function render() {
   const list = visibleMovies();
   const grid = $("#grid");
   const rows = $("#list");
+  const text = $("#text");
   const empty = $("#empty");
 
   grid.hidden = prefs.view !== "grid" || !list.length;
   rows.hidden = prefs.view !== "list" || !list.length;
+  text.hidden = prefs.view !== "text" || !list.length;
   empty.hidden = !!list.length;
   if (!list.length && movies.length) {
     $("#empty-message").textContent = "No matches.";
@@ -105,9 +107,12 @@ function render() {
     ? { onOpen: openEdit, onToggleWatched: toggleWatched }
     : { onOpen: showDetail };
   if (prefs.view === "grid") renderGrid(grid, list, callbacks);
-  else renderList(rows, list, callbacks);
+  else if (prefs.view === "list") renderList(rows, list, callbacks);
+  else renderText(text, list, callbacks);
 
-  $("#btn-view").textContent = prefs.view === "grid" ? "list" : "grid";
+  for (const chip of document.querySelectorAll("[data-view]")) {
+    chip.classList.toggle("selected", chip.dataset.view === prefs.view);
+  }
 
   const unwatched = movies.filter((m) => !m.watched).length;
   const shown = list.length === movies.length ? "" : `${list.length} shown · `;
@@ -672,11 +677,13 @@ function initToolbar() {
     render();
   });
 
-  $("#btn-view").addEventListener("click", () => {
-    prefs.view = prefs.view === "grid" ? "list" : "grid";
-    savePrefs();
-    render();
-  });
+  for (const chip of document.querySelectorAll("[data-view]")) {
+    chip.addEventListener("click", () => {
+      prefs.view = chip.dataset.view;
+      savePrefs();
+      render();
+    });
+  }
 
   $("#btn-theme").addEventListener("click", toggleTheme);
 
@@ -786,7 +793,11 @@ function initShortcuts() {
       e.preventDefault();
       openAdd();
     } else if (e.key === "g") {
-      $("#btn-view").click();
+      e.preventDefault();
+      const order = ["grid", "list", "text"];
+      prefs.view = order[(order.indexOf(prefs.view) + 1) % order.length];
+      savePrefs();
+      render();
     }
   });
 }

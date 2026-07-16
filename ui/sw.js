@@ -4,7 +4,7 @@
 // point is showing what's actually on the shelf right now — the cached
 // copy is only a fallback for when you're offline.
 
-const CACHE = "shelf-v7";
+const CACHE = "shelf-v8";
 const SHELL = [
   "./",
   "./index.html",

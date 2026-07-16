@@ -45,7 +45,11 @@
 
       <span class="toolbar-spring"></span>
 
-      <button id="btn-view" class="tool" title="Toggle grid / list view">list</button>
+      <div class="chips" role="group" aria-label="View">
+        <button class="chip selected" data-view="grid">grid</button>
+        <button class="chip" data-view="list">list</button>
+        <button class="chip" data-view="text">text</button>
+      </div>
       <button id="btn-night" class="tool" title="Pick a random unwatched movie" hidden>movie night</button>
       <button id="btn-add" class="tool accent" title="Add a movie (n)" hidden>+ add</button>
       <button id="btn-menu" class="tool" title="Import / export / settings" hidden>&#x22EF;</button>
@@ -55,6 +59,7 @@
     <main id="collection">
       <div id="grid" hidden></div>
       <div id="list" hidden></div>
+      <div id="text" hidden></div>
       <div id="empty" class="panel-empty" hidden>
         <p id="empty-message">Nothing here yet.</p>
         <p><button id="btn-add-empty" class="tool accent" hidden>+ add your first movie</button></p>
