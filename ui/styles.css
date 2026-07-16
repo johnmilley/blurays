@@ -263,6 +263,13 @@ body:not(.tauri) #titlebar-title {
   padding: 14px;
 }
 
+/* `display: grid` above outweighs the UA sheet's [hidden] rule, so the
+ * hidden attribute main.js uses to switch views silently loses — restate
+ * it at higher specificity or the grid shows under every view. */
+#grid[hidden] {
+  display: none;
+}
+
 .card {
   cursor: pointer;
   user-select: none;

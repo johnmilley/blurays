@@ -817,21 +817,27 @@ window.addEventListener("DOMContentLoaded", async () => {
 
   // phone scans land in SQLite from the Rust side; refresh, announce, and
   // immediately chase down box art/details so it doesn't sit bare until
-  // the next manual "fetch missing" pass
-  store.onPhoneScan(async (movie) => {
-    await reload();
-    toast(`scanned from phone: ${movie.title} [${movie.format}]`);
+  // the next manual "fetch missing" pass. Scans arrive in bursts during a
+  // shelf-cataloging session, so the handlers are chained onto a queue —
+  // each one reloads and re-renders the whole collection, and letting them
+  // overlap made the UI stutter hard mid-batch.
+  let scanChain = Promise.resolve();
+  store.onPhoneScan((movie) => {
+    scanChain = scanChain.then(async () => {
+      await reload();
+      toast(`scanned from phone: ${movie.title} [${movie.format}]`);
 
-    const m = movies.find((mv) => mv.id === movie.id);
-    if (!m || !needsEnrichment(m)) return;
-    try {
-      if (await enrichMovie(m)) {
-        await store.updateMovie(m);
-        await reload();
+      const m = movies.find((mv) => mv.id === movie.id);
+      if (!m || !needsEnrichment(m)) return;
+      try {
+        if (await enrichMovie(m)) {
+          await store.updateMovie(m);
+          await reload();
+        }
+      } catch {
+        // best-effort — the movie is already on the shelf either way
       }
-    } catch {
-      // best-effort — the movie is already on the shelf either way
-    }
+    });
   });
 
   if (!store.isTauri && "serviceWorker" in navigator && location.protocol === "https:") {

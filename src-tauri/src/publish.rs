@@ -5,11 +5,11 @@
 use std::path::Path;
 use std::process::Command;
 
-use rusqlite::Connection;
-
 use crate::db;
 
-pub fn publish(conn: &Connection, repo_path: &str) -> Result<String, String> {
+/// Takes a snapshot of the movies rather than the connection so the DB
+/// lock never spans the (slow, networked) git operations below.
+pub fn publish(movies: &[db::Movie], repo_path: &str) -> Result<String, String> {
     let repo = Path::new(repo_path);
     if !repo.is_dir() {
         return Err(format!("'{repo_path}' isn't a folder — set it again in the menu"));
@@ -21,8 +21,7 @@ pub fn publish(conn: &Connection, repo_path: &str) -> Result<String, String> {
         ));
     }
 
-    let movies = db::list(conn).map_err(|e| e.to_string())?;
-    let json = serde_json::to_string_pretty(&movies).map_err(|e| e.to_string())?;
+    let json = serde_json::to_string_pretty(movies).map_err(|e| e.to_string())?;
     std::fs::write(ui_dir.join("movies.json"), json)
         .map_err(|e| format!("couldn't write movies.json: {e}"))?;
 
