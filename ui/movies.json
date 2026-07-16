@@ -15,6 +15,21 @@
     "added_at": "2026-07-16T00:43:46.182Z"
   },
   {
+    "id": 99,
+    "title": "A Perfect Planet",
+    "year": 2021,
+    "format": "4K",
+    "barcode": "883929723225",
+    "poster": "https://images.static-bluray.com/movies/covers/283824_large.jpg",
+    "director": null,
+    "runtime": 44,
+    "genres": "Documentary",
+    "overview": "A unique fusion of blue chip natural history and earth science that explains how our living planet operates. This five-part series shows how the forces of nature drive, shape and support Earth’s great diversity of wildlife.",
+    "notes": "",
+    "watched": false,
+    "added_at": "2026-07-16T13:44:05.973Z"
+  },
+  {
     "id": 25,
     "title": "Across the Universe",
     "year": 2007,
@@ -60,6 +75,21 @@
     "added_at": "2026-07-16T00:37:43.744Z"
   },
   {
+    "id": 93,
+    "title": "Asteroid City",
+    "year": 2023,
+    "format": "Blu-ray",
+    "barcode": "191329241943",
+    "poster": "https://images.static-bluray.com/movies/covers/340342_large.jpg",
+    "director": "Wes Anderson",
+    "runtime": 105,
+    "genres": "Comedy, Drama",
+    "overview": "In an American desert town circa 1955, the itinerary of a Junior Stargazer/Space Cadet convention is spectacularly disrupted by world-changing events.",
+    "notes": "",
+    "watched": false,
+    "added_at": "2026-07-16T13:36:36.009Z"
+  },
+  {
     "id": 65,
     "title": "BEGINNERS",
     "year": 2011,
@@ -103,6 +133,21 @@
     "notes": "",
     "watched": false,
     "added_at": "2026-07-15T19:54:55.924Z"
+  },
+  {
+    "id": 106,
+    "title": "C'mon C'mon",
+    "year": 2022,
+    "format": "Blu-ray",
+    "barcode": "777235033201",
+    "poster": "https://images.static-bluray.com/movies/covers/308532_large.jpg",
+    "director": "Lachlan Duncan-Brooke",
+    "runtime": 3,
+    "genres": "Drama",
+    "overview": "A young woman is forced to confront her own feelings of grief and confusion after the death of a friend.",
+    "notes": "",
+    "watched": false,
+    "added_at": "2026-07-16T13:48:16.426Z"
   },
   {
     "id": 9,
@@ -240,6 +285,36 @@
     "added_at": "2026-07-16T00:55:12.661Z"
   },
   {
+    "id": 94,
+    "title": "Eyes Wide Shut",
+    "year": 1999,
+    "format": "Blu-ray",
+    "barcode": "85391293873",
+    "poster": "https://images.static-bluray.com/movies/covers/509_large.jpg",
+    "director": "Stanley Kubrick",
+    "runtime": 159,
+    "genres": "Drama, Thriller, Mystery",
+    "overview": "After Dr. Bill Harford's wife, Alice, admits to having sexual fantasies about a man she met, Bill becomes obsessed with having a sexual encounter. He discovers an underground sexual group and attends one of their meetings -- and quickly discovers that he is in over his head.",
+    "notes": "",
+    "watched": false,
+    "added_at": "2026-07-16T13:37:44.387Z"
+  },
+  {
+    "id": 116,
+    "title": "Fight Club",
+    "year": 1999,
+    "format": "Blu-ray",
+    "barcode": null,
+    "poster": "https://images.static-bluray.com/movies/covers/5587_large.jpg",
+    "director": "David Fincher",
+    "runtime": 139,
+    "genres": "Drama, Thriller",
+    "overview": "A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. Their concept catches on, with underground \"fight clubs\" forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.",
+    "notes": "",
+    "watched": false,
+    "added_at": "2026-07-16T13:54:00.539Z"
+  },
+  {
     "id": 10,
     "title": "Fury",
     "year": 2014,
@@ -253,6 +328,21 @@
     "notes": "",
     "watched": false,
     "added_at": "2026-07-15T19:39:57.120Z"
+  },
+  {
+    "id": 105,
+    "title": "Gravity",
+    "year": 2014,
+    "format": "Blu-ray",
+    "barcode": "883929326525",
+    "poster": "https://images.static-bluray.com/movies/covers/91688_large.jpg",
+    "director": "Elvira Lind",
+    "runtime": 6,
+    "genres": "Music",
+    "overview": "Mr. Carpool (Oscar Isaac) wanders around the freeways of Los Angeles, making ends meet by offering his services as an extra passenger so they can drive in the carpooling lane.",
+    "notes": "",
+    "watched": false,
+    "added_at": "2026-07-16T13:48:09.660Z"
   },
   {
     "id": 42,
@@ -300,6 +390,21 @@
     "added_at": "2026-07-15T19:34:22.193Z"
   },
   {
+    "id": 109,
+    "title": "Inglourious Basterds",
+    "year": 2009,
+    "format": "Blu-ray",
+    "barcode": "025192015397",
+    "poster": "https://images.static-bluray.com/movies/covers/6971_large.jpg",
+    "director": "Quentin Tarantino",
+    "runtime": 153,
+    "genres": "Drama, Thriller, War",
+    "overview": "In Nazi-occupied France during World War II, a group of Jewish-American soldiers known as \"The Basterds\" are chosen specifically to spread fear throughout the Third Reich by scalping and brutally killing Nazis. The Basterds, lead by Lt. Aldo Raine soon cross paths with a French-Jewish teenage girl who runs a movie theater in Paris which is targeted by the soldiers.",
+    "notes": "",
+    "watched": false,
+    "added_at": "2026-07-16T13:48:53.000Z"
+  },
+  {
     "id": 48,
     "title": "It",
     "year": 2017,
@@ -328,6 +433,21 @@
     "notes": "",
     "watched": false,
     "added_at": "2026-07-15T19:44:31.730Z"
+  },
+  {
+    "id": 96,
+    "title": "Lara Croft: Tomb Raider",
+    "year": 2001,
+    "format": "Blu-ray",
+    "barcode": "97361182469",
+    "poster": "https://images.static-bluray.com/movies/covers/61879_large.jpg",
+    "director": "Simon West",
+    "runtime": 100,
+    "genres": "Adventure, Action, Fantasy",
+    "overview": "Orphaned heiress, English aristocrat and intrepid archaeologist, Lara Croft, embarks on a dangerous quest to retrieve the two halves of an ancient artifact which controls time before it falls into the wrong hands. As an extremely rare planetary alignment is about to occur for the first time in 5,000 years, the fearless tomb raider will have to team up with rival adventurers and sworn enemies to collect the pieces, while time is running out. But, in the end, who can harness the archaic talisman's unlimited power?",
+    "notes": "",
+    "watched": false,
+    "added_at": "2026-07-16T13:38:51.460Z"
   },
   {
     "id": 72,
@@ -405,6 +525,21 @@
     "added_at": "2026-07-16T00:07:21.262Z"
   },
   {
+    "id": 115,
+    "title": "Midnight in Paris",
+    "year": 2011,
+    "format": "Blu-ray",
+    "barcode": "043396385238",
+    "poster": "https://images.static-bluray.com/movies/covers/30241_large.jpg",
+    "director": "Woody Allen",
+    "runtime": 94,
+    "genres": "Fantasy, Comedy, Romance",
+    "overview": "While on a trip to Paris with his fiancée's family, a nostalgic screenwriter finds himself mysteriously going back to the 1920s every day at midnight.",
+    "notes": "",
+    "watched": false,
+    "added_at": "2026-07-16T13:53:35.188Z"
+  },
+  {
     "id": 18,
     "title": "Monty Python's The Meaning of Life",
     "year": 1983,
@@ -450,6 +585,51 @@
     "added_at": "2026-07-16T00:54:02.355Z"
   },
   {
+    "id": 110,
+    "title": "Pirates of the Caribbean: The Curse of the Bl…",
+    "year": 2007,
+    "format": "Blu-ray",
+    "barcode": "786936724790",
+    "poster": "https://images.static-bluray.com/movies/covers/59_large.jpg",
+    "director": "Gore Verbinski",
+    "runtime": 143,
+    "genres": "Adventure, Fantasy, Action",
+    "overview": "When wily pirate Captain Barbossa seizes Jack Sparrow’s beloved ship, the Black Pearl, and kidnaps the governor’s daughter, Elizabeth Swann, blacksmith Will Turner reluctantly teams up with the unpredictable pirate Jack to rescue her—only to uncover a terrifying curse that turns Barbossa’s crew into the undead.",
+    "notes": "",
+    "watched": false,
+    "added_at": "2026-07-16T13:50:24.841Z"
+  },
+  {
+    "id": 98,
+    "title": "Planet Earth III",
+    "year": 2024,
+    "format": "4K",
+    "barcode": "883929820559",
+    "poster": "https://images.static-bluray.com/movies/covers/349918_large.jpg",
+    "director": null,
+    "runtime": null,
+    "genres": "Documentary, Family",
+    "overview": "Journeying to the far reaches of our planet, this eight part series follows some of the world's most amazing species, telling extraordinary stories that are dramatic, thrilling, funny and sometimes heart-breaking, but always full of hope.",
+    "notes": "",
+    "watched": false,
+    "added_at": "2026-07-16T13:43:58.996Z"
+  },
+  {
+    "id": 104,
+    "title": "Powder Blue",
+    "year": 2009,
+    "format": "Blu-ray",
+    "barcode": "14381614954",
+    "poster": "https://images.static-bluray.com/movies/covers/4378_large.jpg",
+    "director": "Timothy Linh Bui",
+    "runtime": 106,
+    "genres": "Drama",
+    "overview": "On the gritty streets of LA, the destinies of four people desperate for connection and redemption are about to collide.",
+    "notes": "",
+    "watched": false,
+    "added_at": "2026-07-16T13:47:04.524Z"
+  },
+  {
     "id": 27,
     "title": "Pulp Fiction",
     "year": 1994,
@@ -478,6 +658,21 @@
     "notes": "",
     "watched": false,
     "added_at": "2026-07-16T00:46:44.057Z"
+  },
+  {
+    "id": 101,
+    "title": "Reservoir Dogs",
+    "year": 1992,
+    "format": "Blu-ray",
+    "barcode": "57373173671",
+    "poster": "https://images.static-bluray.com/movies/covers/335393_large.jpg",
+    "director": "Quentin Tarantino",
+    "runtime": 99,
+    "genres": "Crime, Thriller",
+    "overview": "A botched robbery indicates a police informant, and the pressure mounts in the aftermath at a warehouse. Crime begets violence as the survivors -- veteran Mr. White, newcomer Mr. Orange, psychopathic parolee Mr. Blonde, bickering weasel Mr. Pink and Nice Guy Eddie -- unravel.",
+    "notes": "",
+    "watched": false,
+    "added_at": "2026-07-16T13:45:38.971Z"
   },
   {
     "id": 12,
@@ -585,6 +780,21 @@
     "added_at": "2026-07-16T00:50:49.144Z"
   },
   {
+    "id": 103,
+    "title": "Sunset Boulevard",
+    "year": 2013,
+    "format": "Blu-ray",
+    "barcode": "883929310241",
+    "poster": "https://images.static-bluray.com/movies/covers/60907_large.jpg",
+    "director": "Billy Wilder",
+    "runtime": 110,
+    "genres": "Drama",
+    "overview": "A hack screenwriter writes a screenplay for a former silent film star who has faded into Hollywood obscurity.",
+    "notes": "",
+    "watched": false,
+    "added_at": "2026-07-16T13:46:50.342Z"
+  },
+  {
     "id": 75,
     "title": "Superman",
     "year": 2025,
@@ -643,6 +853,21 @@
     "notes": "",
     "watched": false,
     "added_at": "2026-07-16T13:15:27.433Z"
+  },
+  {
+    "id": 95,
+    "title": "Terminator Salvation",
+    "year": 2009,
+    "format": "Blu-ray",
+    "barcode": "883929095032",
+    "poster": "https://images.static-bluray.com/movies/covers/7392_large.jpg",
+    "director": "McG",
+    "runtime": 115,
+    "genres": "Action, Science Fiction, Thriller",
+    "overview": "All grown up in post-apocalyptic 2018, John Connor must lead the resistance of humans against the increasingly dominating militaristic robots. But when Marcus Wright appears, his existence confuses the mission as Connor tries to determine whether Wright has come from the future or the past -- and whether he's friend or foe.",
+    "notes": "",
+    "watched": false,
+    "added_at": "2026-07-16T13:38:06.740Z"
   },
   {
     "id": 14,
@@ -733,6 +958,21 @@
     "notes": "",
     "watched": false,
     "added_at": "2026-07-16T00:28:47.057Z"
+  },
+  {
+    "id": 107,
+    "title": "The French Dispatch",
+    "year": 2021,
+    "format": "Blu-ray",
+    "barcode": "786936880977",
+    "poster": "https://images.static-bluray.com/movies/covers/305568_large.jpg",
+    "director": "Wes Anderson",
+    "runtime": 108,
+    "genres": "Drama, Comedy",
+    "overview": "The staff of an American magazine based in France puts out its last issue, with stories featuring an artist sentenced to life imprisonment, student riots, and a kidnapping resolved by a chef.",
+    "notes": "",
+    "watched": false,
+    "added_at": "2026-07-16T13:48:21.585Z"
   },
   {
     "id": 82,
@@ -885,6 +1125,21 @@
     "added_at": "2026-07-16T00:07:17.207Z"
   },
   {
+    "id": 108,
+    "title": "Titanic",
+    "year": 1997,
+    "format": "Blu-ray",
+    "barcode": "32429355133",
+    "poster": "https://images.static-bluray.com/movies/covers/285654_large.jpg",
+    "director": "James Cameron",
+    "runtime": 194,
+    "genres": "Drama, Romance",
+    "overview": "101-year-old Rose DeWitt Bukater tells the story of her life aboard the Titanic, 84 years later. A young Rose boards the ship with her mother and fiancé. Meanwhile, Jack Dawson and Fabrizio De Rossi win third-class tickets aboard the ship. Rose tells the whole story from Titanic's departure through to its death—on its first and last voyage—on April 15, 1912.",
+    "notes": "",
+    "watched": false,
+    "added_at": "2026-07-16T13:48:26.784Z"
+  },
+  {
     "id": 20,
     "title": "Tomb Raider",
     "year": 2018,
@@ -930,6 +1185,21 @@
     "added_at": "2026-07-16T00:14:14.639Z"
   },
   {
+    "id": 117,
+    "title": "unknown (31398140573)",
+    "year": null,
+    "format": "Blu-ray",
+    "barcode": "31398140573",
+    "poster": null,
+    "director": null,
+    "runtime": null,
+    "genres": null,
+    "overview": null,
+    "notes": "",
+    "watched": false,
+    "added_at": "2026-07-16T13:55:11.298Z"
+  },
+  {
     "id": 39,
     "title": "V FOR VENDETTA",
     "year": 2006,
@@ -973,6 +1243,36 @@
     "notes": "",
     "watched": false,
     "added_at": "2026-07-15T19:38:35.237Z"
+  },
+  {
+    "id": 102,
+    "title": "Weapons",
+    "year": 2025,
+    "format": "4K",
+    "barcode": "883929840359",
+    "poster": "https://images.static-bluray.com/movies/covers/394503_large.jpg",
+    "director": "Zach Cregger",
+    "runtime": 129,
+    "genres": "Horror, Mystery",
+    "overview": "When all but one child from the same class mysteriously vanish on the same night at exactly the same time, a community is left questioning who or what is behind their disappearance.",
+    "notes": "",
+    "watched": false,
+    "added_at": "2026-07-16T13:46:11.778Z"
+  },
+  {
+    "id": 97,
+    "title": "Wild China",
+    "year": 2008,
+    "format": "Blu-ray",
+    "barcode": "883929017164",
+    "poster": "https://images.static-bluray.com/movies/covers/777_large.jpg",
+    "director": "Gavin Maxwell",
+    "runtime": 60,
+    "genres": "Documentary",
+    "overview": "The dazzling array of mysterious and wonderful creatures that live in China's most beautiful landscapes.",
+    "notes": "",
+    "watched": false,
+    "added_at": "2026-07-16T13:39:48.344Z"
   },
   {
     "id": 60,
