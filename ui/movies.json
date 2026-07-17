@@ -1726,7 +1726,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "1a30f0d6026dc8c6.jpg",
     "added_at": "2026-07-16T21:29:25.540Z"
   },
@@ -1745,7 +1745,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "a3c928642b9a378b.jpg",
     "added_at": "2026-07-15T19:39:57.120Z"
   },
@@ -1764,7 +1764,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "4caf9bfa31dfd49a.jpg",
     "added_at": "2026-07-16T21:07:49.303Z"
   },
@@ -1802,7 +1802,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "1526d4666770fe0c.jpg",
     "added_at": "2026-07-16T21:33:13.349Z"
   },
@@ -1840,7 +1840,7 @@
     "watched": true,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "92be7ffea428c734.jpg",
     "added_at": "2026-07-16T13:48:09.660Z"
   },
@@ -1859,7 +1859,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "dd566e1f08595f55.jpg",
     "added_at": "2026-07-16T21:08:15.736Z"
   },
@@ -1916,7 +1916,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "2cb79b84b2917ebf.jpg",
     "added_at": "2026-07-16T21:40:34.003Z"
   },
@@ -1935,7 +1935,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "7580bf8d6789207c.jpg",
     "added_at": "2026-07-16T00:23:04.344Z"
   },
@@ -2011,7 +2011,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "a8fbffbe2649f59c.jpg",
     "added_at": "2026-07-16T21:37:14.945Z"
   },
@@ -2049,7 +2049,7 @@
     "watched": true,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "7a13a35be5cc63f4.jpg",
     "added_at": "2026-07-15T19:34:22.193Z"
   },
@@ -2068,7 +2068,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "2ebe28348a044b58.jpg",
     "added_at": "2026-07-17T00:02:51.654Z"
   },
@@ -2087,7 +2087,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "5390a807b0f4aa04.jpg",
     "added_at": "2026-07-17T13:40:59.368Z"
   },
@@ -2106,7 +2106,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "68efe09a302bbcbb.jpg",
     "added_at": "2026-07-16T21:08:31.621Z"
   },
@@ -2125,7 +2125,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "04f1e932ebe26201.jpg",
     "added_at": "2026-07-16T22:50:39.870Z"
   },
@@ -2144,7 +2144,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "91863058e65280b3.jpg",
     "added_at": "2026-07-16T21:29:20.432Z"
   },
@@ -2163,7 +2163,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "f302276f4bba9d4c.jpg",
     "added_at": "2026-07-16T22:44:18.328Z"
   },
@@ -2182,7 +2182,7 @@
     "watched": true,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "db487e952180fbd3.jpg",
     "added_at": "2026-07-16T13:48:53.000Z"
   },
@@ -2258,7 +2258,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "ab112f2a3ab7ba24.jpg",
     "added_at": "2026-07-16T22:34:51.522Z"
   },
@@ -2277,7 +2277,7 @@
     "watched": true,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "071e33858136c40d.jpg",
     "added_at": "2026-07-16T00:33:23.180Z"
   },
@@ -2334,7 +2334,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "8a3ae47ac02a495c.jpg",
     "added_at": "2026-07-16T21:40:54.043Z"
   },
@@ -2353,7 +2353,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "3be60cd8da01718d.jpg",
     "added_at": "2026-07-16T21:29:33.605Z"
   },
@@ -2372,7 +2372,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "6f581099109a1742.jpg",
     "added_at": "2026-07-16T21:29:29.879Z"
   },
@@ -2391,7 +2391,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "dbc554133c5c3c95.jpg",
     "added_at": "2026-07-16T22:44:24.306Z"
   },
@@ -2410,7 +2410,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "b59420a18dfc082c.jpg",
     "added_at": "2026-07-15T19:44:31.730Z"
   },
@@ -2420,7 +2420,7 @@
     "year": 2008,
     "format": "Blu-ray",
     "barcode": "0097361386867",
-    "poster": "https://images.static-bluray.com/movies/covers/115783_large.jpg",
+    "poster": "https://m.media-amazon.com/images/I/71Qh6PhZfOL._SY342_.jpg",
     "director": "Mark Osborne",
     "runtime": 90,
     "genres": "Action, Animation, Comedy, Family",
@@ -2429,8 +2429,8 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
-    "cover": "d7308066b565d1cd.jpg",
+    "rounded": true,
+    "cover": "f6c60bb2416cd8bb.jpg",
     "added_at": "2026-07-17T00:00:19.769Z"
   },
   {
@@ -2467,7 +2467,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "d00d4e6106adb7ca.jpg",
     "added_at": "2026-07-16T23:04:38.467Z"
   },
@@ -2486,7 +2486,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "e3ebfa0b569461b7.jpg",
     "added_at": "2026-07-16T13:38:51.460Z"
   },
@@ -2524,17 +2524,17 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "9ccf7fff75d06c6c.jpg",
     "added_at": "2026-07-16T21:11:49.406Z"
   },
   {
     "id": 290,
-    "title": "Little Amelie or the Character of Rain",
-    "year": 2026,
+    "title": "Little Amélie or the Character of Rain",
+    "year": 2025,
     "format": "Blu-ray",
     "barcode": "0826663267938",
-    "poster": "https://images.static-bluray.com/movies/covers/402583_large.jpg",
+    "poster": "https://images.static-bluray.com/movies/covers/404304_large.jpg",
     "director": "Maïlys Vallade",
     "runtime": 77,
     "genres": "Animation, Drama, Family",
@@ -2543,8 +2543,8 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
-    "cover": "3f75279b4c8ebeae.jpg",
+    "rounded": true,
+    "cover": "1591f0ffa96ce83b.jpg",
     "added_at": "2026-07-17T00:00:15.150Z"
   },
   {
@@ -2553,7 +2553,7 @@
     "year": 2012,
     "format": "Blu-ray",
     "barcode": "0065935590125",
-    "poster": "https://i5.walmartimages.com/asr/9768eddf-9c5c-40da-84c1-c7db4f30e1ae.76c2dba1fd131dc31eff923b292e40b9.jpeg?odnHeight=450&odnWidth=450&odnBg=ffffff",
+    "poster": "https://m.media-amazon.com/images/I/71zWhszWLTL._AC_UF894,1000_QL80_.jpg",
     "director": "Rian Johnson",
     "runtime": 118,
     "genres": "Action, Thriller, Science Fiction",
@@ -2562,8 +2562,8 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
-    "cover": "defedb0b65a3b34d.jpeg",
+    "rounded": true,
+    "cover": "30e5955b24efc329.jpg",
     "added_at": "2026-07-16T21:12:44.560Z"
   },
   {
@@ -2581,7 +2581,7 @@
     "watched": true,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "f01326218c9cde6c.jpg",
     "added_at": "2026-07-16T00:54:23.151Z"
   },
@@ -2600,7 +2600,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "ef75ca999fcb9c45.jpg",
     "added_at": "2026-07-16T00:54:41.673Z"
   },
@@ -2619,7 +2619,7 @@
     "watched": true,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "ba05c4aa45321e1e.jpg",
     "added_at": "2026-07-16T00:19:00.231Z"
   },
@@ -2638,7 +2638,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "6d59cd1c2ab07801.jpg",
     "added_at": "2026-07-16T00:43:51.837Z"
   },
@@ -2667,7 +2667,7 @@
     "year": 1969,
     "format": "Blu-ray",
     "barcode": "883904240051",
-    "poster": "https://images.static-bluray.com/movies/covers/24734_large.jpg",
+    "poster": "https://images.static-bluray.com/movies/covers/33563_large.jpg",
     "director": "John Schlesinger",
     "runtime": 113,
     "genres": "Drama",
@@ -2676,8 +2676,8 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
-    "cover": "c3cabe8c8241125c.jpg",
+    "rounded": true,
+    "cover": "286e023374858372.jpg",
     "added_at": "2026-07-16T00:07:21.262Z"
   },
   {
@@ -2695,7 +2695,7 @@
     "watched": true,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "6c3befd34ed1a450.jpg",
     "added_at": "2026-07-16T13:53:35.188Z"
   },
@@ -2714,7 +2714,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "7d00fccb25d87239.jpg",
     "added_at": "2026-07-16T23:10:10.544Z"
   },
@@ -2847,7 +2847,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "6e0f0d9ef2622e83.jpg",
     "added_at": "2026-07-15T19:59:11.102Z"
   },
@@ -2866,7 +2866,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "8234b6679baea49c.jpg",
     "added_at": "2026-07-16T21:12:16.771Z"
   },
@@ -2885,7 +2885,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "81683e91e9f1f1c6.jpg",
     "added_at": "2026-07-17T13:40:56.168Z"
   },
@@ -2904,7 +2904,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "7e4f5aec56ebe6eb.jpg",
     "added_at": "2026-07-16T23:56:20.493Z"
   },
@@ -2923,7 +2923,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "46e6e15c4f2d5f42.jpg",
     "added_at": "2026-07-16T23:07:33.230Z"
   },
@@ -2942,7 +2942,7 @@
     "watched": true,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "391192fa4397e7a0.jpg",
     "added_at": "2026-07-15T19:59:19.734Z"
   },
@@ -2950,7 +2950,7 @@
     "id": 147,
     "title": "Nirvanna the Band the Show the Movie",
     "year": 2026,
-    "format": "Blu-ray",
+    "format": "4K",
     "barcode": "0191329289624",
     "poster": "https://images.static-bluray.com/movies/covers/409263_large.jpg",
     "director": "Matt Johnson",
@@ -2961,7 +2961,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "7e52a249a33ed986.jpg",
     "added_at": "2026-07-16T21:23:13.479Z"
   },
@@ -2980,7 +2980,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "382156bf6900f4f7.jpg",
     "added_at": "2026-07-16T23:53:40.493Z"
   },
@@ -2999,7 +2999,7 @@
     "watched": true,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "88086d10e6f08b5b.jpg",
     "added_at": "2026-07-16T22:35:31.352Z"
   },
@@ -3037,7 +3037,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "f0b4b48f9a8e8724.jpg",
     "added_at": "2026-07-16T21:42:51.147Z"
   },
@@ -3075,7 +3075,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "c1b150f9e79754c2.jpg",
     "added_at": "2026-07-16T21:12:49.648Z"
   },
@@ -3094,7 +3094,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "9d80172ac7a92452.jpg",
     "added_at": "2026-07-16T21:08:05.978Z"
   },
@@ -3132,7 +3132,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "d62351e24b070f0a.jpg",
     "added_at": "2026-07-16T22:59:30.713Z"
   },
@@ -3170,7 +3170,7 @@
     "watched": true,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "d29bc4301a2d50c2.jpg",
     "added_at": "2026-07-16T21:42:46.830Z"
   },
@@ -3208,7 +3208,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "c51488e3fb06dc8b.jpg",
     "added_at": "2026-07-16T23:53:14.672Z"
   },
@@ -3246,7 +3246,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "49ee8da92cb08896.jpg",
     "added_at": "2026-07-17T00:07:43.159Z"
   },
@@ -3265,7 +3265,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "14c9a7c8da9d8164.jpg",
     "added_at": "2026-07-17T00:07:39.417Z"
   },
@@ -3284,7 +3284,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "6e57bbef222acdbc.jpg",
     "added_at": "2026-07-16T13:50:24.841Z"
   },
@@ -3322,7 +3322,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "c15a32bb3d446b7f.jpg",
     "added_at": "2026-07-16T23:04:29.859Z"
   },
@@ -3360,7 +3360,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "24d3eb9cd675dca0.jpg",
     "added_at": "2026-07-16T13:47:04.524Z"
   },
@@ -3379,7 +3379,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "73a4e172e5511d27.jpg",
     "added_at": "2026-07-16T22:57:54.731Z"
   },
@@ -3417,7 +3417,7 @@
     "watched": true,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "8dae89f7706fb3ae.jpg",
     "added_at": "2026-07-16T21:42:55.488Z"
   },
@@ -3436,7 +3436,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "81304bc0546115f8.jpg",
     "added_at": "2026-07-17T13:40:48.753Z"
   },
@@ -3455,7 +3455,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "9e901c33a98a388e.jpg",
     "added_at": "2026-07-16T21:13:49.873Z"
   },
@@ -3474,7 +3474,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "686108751c05dabd.jpg",
     "added_at": "2026-07-16T00:07:13.422Z"
   },
@@ -3493,7 +3493,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "3ba9ebba5b2f33e2.jpg",
     "added_at": "2026-07-16T00:46:44.057Z"
   },
@@ -3512,7 +3512,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "78a2792ce54fce95.jpg",
     "added_at": "2026-07-16T23:09:11.389Z"
   },
@@ -3531,7 +3531,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "49264654967385de.jpg",
     "added_at": "2026-07-16T21:45:18.999Z"
   },
@@ -3569,7 +3569,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "731ab48575e8b050.jpg",
     "added_at": "2026-07-16T13:45:38.971Z"
   },
@@ -3588,7 +3588,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "5f4d142bb52b5af3.jpg",
     "added_at": "2026-07-16T23:00:30.453Z"
   },
@@ -3607,7 +3607,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "64484347f0253e4c.jpg",
     "added_at": "2026-07-15T19:40:24.010Z"
   },
@@ -3626,7 +3626,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "a7800fbfbd4a9e2e.jpg",
     "added_at": "2026-07-15T20:19:49.235Z"
   },
@@ -3645,7 +3645,7 @@
     "watched": true,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "506d6582f7a15b6c.jpg",
     "added_at": "2026-07-16T21:42:59.903Z"
   },
@@ -3664,7 +3664,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "5f34c87608357340.jpg",
     "added_at": "2026-07-16T21:08:01.575Z"
   },
@@ -3683,7 +3683,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "7c02135ba558ed10.jpg",
     "added_at": "2026-07-16T00:53:44.143Z"
   },
@@ -3721,7 +3721,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "40a6057f3d6d3ad4.jpg",
     "added_at": "2026-07-15T19:33:56.025Z"
   },
@@ -3759,7 +3759,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "a6963b3d5c246d98.jpg",
     "added_at": "2026-07-15T19:39:22.877Z"
   },
@@ -3778,7 +3778,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "0979ff26e2db365f.jpg",
     "added_at": "2026-07-16T22:58:04.763Z"
   },
@@ -3797,7 +3797,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "0d3c27cb1ebe16fe.jpg",
     "added_at": "2026-07-16T23:09:07.772Z"
   },
@@ -3949,7 +3949,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "4ba5b9dcdc3a2d0a.jpg",
     "added_at": "2026-07-16T23:10:14.854Z"
   },
@@ -3987,7 +3987,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "f86075683c31387f.jpg",
     "added_at": "2026-07-16T23:56:05.096Z"
   },
@@ -4006,7 +4006,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "b2459f900f41e93e.jpg",
     "added_at": "2026-07-16T22:44:40.412Z"
   },
@@ -4025,7 +4025,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "5951e73b0df8f3e3.jpg",
     "added_at": "2026-07-16T23:56:10.987Z"
   },
@@ -4044,7 +4044,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "ffa08f219ea2e243.jpg",
     "added_at": "2026-07-17T13:40:53.000Z"
   },
@@ -4101,7 +4101,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "59891534a3efd41c.jpg",
     "added_at": "2026-07-16T19:32:32.136Z"
   },
@@ -4120,7 +4120,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "4450235438a50844.jpg",
     "added_at": "2026-07-16T13:46:50.342Z"
   },
@@ -4139,7 +4139,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "f563d76b3f622bbd.jpg",
     "added_at": "2026-07-16T00:55:58.147Z"
   },
@@ -4196,7 +4196,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "408ffa47ad4fd3c4.jpg",
     "added_at": "2026-07-16T00:41:32.306Z"
   },
@@ -4215,7 +4215,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "140f5f79eb20d66c.jpg",
     "added_at": "2026-07-16T13:15:27.433Z"
   },
@@ -4234,7 +4234,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "4b846118c4254ef3.jpg",
     "added_at": "2026-07-16T13:38:06.740Z"
   },
@@ -4310,7 +4310,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "3dce97daa9c40bdc.jpg",
     "added_at": "2026-07-16T22:41:15.211Z"
   },
@@ -4329,7 +4329,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "f7c8e688fdb11336.jpg",
     "added_at": "2026-07-16T21:08:50.827Z"
   },
@@ -4367,7 +4367,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "9af70c8414d1734d.jpg",
     "added_at": "2026-07-16T22:54:46.730Z"
   },
@@ -4386,7 +4386,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "1336bc93a9f19a91.jpg",
     "added_at": "2026-07-16T22:55:06.237Z"
   },
@@ -4405,7 +4405,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "c448f632695f9604.jpg",
     "added_at": "2026-07-17T13:47:00.065Z"
   },
@@ -4424,7 +4424,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "158a5e2fa3d025d3.jpg",
     "added_at": "2026-07-17T00:06:06.889Z"
   },
@@ -4538,7 +4538,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "f4c9e35a19595f5b.jpg",
     "added_at": "2026-07-16T00:28:47.057Z"
   },
@@ -4595,7 +4595,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "30c6421da431a2b3.jpg",
     "added_at": "2026-07-16T22:41:28.064Z"
   },
@@ -4614,7 +4614,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "e1221a3f83003b57.jpg",
     "added_at": "2026-07-16T21:38:06.511Z"
   },
@@ -4633,7 +4633,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "dfce0b7c5e04d319.jpg",
     "added_at": "2026-07-16T21:37:54.158Z"
   },
@@ -4671,7 +4671,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "c24992e9f25f4d99.jpg",
     "added_at": "2026-07-16T22:34:45.162Z"
   },
@@ -4700,7 +4700,7 @@
     "year": 2008,
     "format": "Blu-ray",
     "barcode": "0025195041331",
-    "poster": "https://images.static-bluray.com/movies/covers/824_large.jpg",
+    "poster": "https://i.ebayimg.com/images/g/yLgAAMXQWuRQ9yjj/s-l400.jpg",
     "director": "Louis Leterrier",
     "runtime": 114,
     "genres": "Science Fiction, Action, Adventure",
@@ -4710,7 +4710,7 @@
     "last_watched": null,
     "watches": [],
     "rounded": false,
-    "cover": "fc6cece0e1ddf79a.jpg",
+    "cover": "ac175cfa9f32044f.jpg",
     "added_at": "2026-07-16T23:09:16.272Z"
   },
   {
@@ -4804,7 +4804,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "b741005f90b02ea6.jpg",
     "added_at": "2026-07-16T22:40:58.887Z"
   },
@@ -4823,7 +4823,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "6ba1e6c6bcfc2db2.jpg",
     "added_at": "2026-07-17T00:02:46.615Z"
   },
@@ -5051,7 +5051,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "5ca8a4769e154576.jpg",
     "added_at": "2026-07-16T21:21:24.791Z"
   },
@@ -5070,7 +5070,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "c3d4780c08c1e067.jpg",
     "added_at": "2026-07-17T13:45:57.233Z"
   },
@@ -5108,7 +5108,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "871fac449dba1236.jpg",
     "added_at": "2026-07-16T22:50:44.921Z"
   },
@@ -5118,7 +5118,7 @@
     "year": 2010,
     "format": "Blu-ray",
     "barcode": "043396373617",
-    "poster": "https://images.static-bluray.com/movies/covers/18811_large.jpg",
+    "poster": "https://m.media-amazon.com/images/I/61rKavpnTmS._AC_UF894,1000_QL80_.jpg",
     "director": "David Fincher",
     "runtime": 121,
     "genres": "Drama",
@@ -5127,8 +5127,8 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
-    "cover": "f6db74a43e0edc6d.jpg",
+    "rounded": true,
+    "cover": "facf5cc82f9af133.jpg",
     "added_at": "2026-07-16T22:43:20.623Z"
   },
   {
@@ -5165,7 +5165,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "2e565a508f14d992.jpg",
     "added_at": "2026-07-17T17:05:40.150Z"
   },
@@ -5203,7 +5203,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "24ec1a31884c9e12.jpg",
     "added_at": "2026-07-17T13:46:22.490Z"
   },
@@ -5243,7 +5243,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "7b12cb1f2e4a56cf.jpg",
     "added_at": "2026-07-16T22:48:55.706Z"
   },
@@ -5262,7 +5262,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "6123ea66587d8638.jpg",
     "added_at": "2026-07-16T23:04:34.688Z"
   },
@@ -5281,7 +5281,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "aa7a8227b72c674a.jpg",
     "added_at": "2026-07-16T21:31:47.471Z"
   },
@@ -5300,7 +5300,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "2cd18905ec0bdcdc.jpg",
     "added_at": "2026-07-16T23:55:39.709Z"
   },
@@ -5319,7 +5319,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "0c7e876632338009.jpg",
     "added_at": "2026-07-16T00:19:04.169Z"
   },
@@ -5338,7 +5338,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "44ab469b6c92db4b.jpg",
     "added_at": "2026-07-16T23:07:51.357Z"
   },
@@ -5357,7 +5357,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "b1f8fbc0e577a726.jpg",
     "added_at": "2026-07-16T00:51:31.306Z"
   },
@@ -5376,7 +5376,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "cfc000b522576197.jpg",
     "added_at": "2026-07-16T21:40:38.151Z"
   },
@@ -5395,7 +5395,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "8637a9e80388c2c7.jpg",
     "added_at": "2026-07-16T00:07:17.207Z"
   },
@@ -5414,7 +5414,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "cc316ffcc8318fa9.jpg",
     "added_at": "2026-07-16T21:20:57.837Z"
   },
@@ -5433,7 +5433,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "4fc196e690c77632.jpg",
     "added_at": "2026-07-16T13:48:26.784Z"
   },
@@ -5452,7 +5452,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "c69ecd9724200af6.jpg",
     "added_at": "2026-07-16T22:59:34.192Z"
   },
@@ -5471,7 +5471,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "7f901f11dec47df6.jpg",
     "added_at": "2026-07-15T20:00:58.590Z"
   },
@@ -5490,7 +5490,7 @@
     "watched": true,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "03762a5f877dcc94.jpg",
     "added_at": "2026-07-16T22:34:18.226Z"
   },
@@ -5509,7 +5509,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "c900037549a1f815.jpg",
     "added_at": "2026-07-17T00:14:48.100Z"
   },
@@ -5547,7 +5547,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "995df92f43bd40fa.jpg",
     "added_at": "2026-07-17T00:09:41.545Z"
   },
@@ -5566,7 +5566,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "70985f70b07cb186.jpg",
     "added_at": "2026-07-16T21:23:32.506Z"
   },
@@ -5585,7 +5585,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "b9ed26b9d5c635a4.jpg",
     "added_at": "2026-07-16T23:56:16.421Z"
   },
@@ -5604,7 +5604,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "986704ecb336168c.jpg",
     "added_at": "2026-07-16T00:26:08.885Z"
   },
@@ -5623,7 +5623,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "6b2dba4abb257eed.jpg",
     "added_at": "2026-07-16T00:14:14.639Z"
   },
@@ -5642,7 +5642,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "aa4c6b1b8a5458d5.jpg",
     "added_at": "2026-07-16T22:50:59.117Z"
   },
@@ -5661,7 +5661,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "2d4a73fc9332cc36.jpg",
     "added_at": "2026-07-16T23:52:17.914Z"
   },
@@ -5699,7 +5699,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "c0c3e23fac5340c9.jpg",
     "added_at": "2026-07-16T21:29:37.124Z"
   },
@@ -5718,7 +5718,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "72ea314df6918570.jpg",
     "added_at": "2026-07-16T00:18:56.061Z"
   },
@@ -5775,7 +5775,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "35496e284ca31f81.jpg",
     "added_at": "2026-07-15T19:37:59.089Z"
   },
@@ -5794,7 +5794,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "c80d7732b797a0fd.jpg",
     "added_at": "2026-07-15T19:38:35.237Z"
   },
@@ -5813,7 +5813,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "cce50a32a586810d.jpg",
     "added_at": "2026-07-16T21:23:03.929Z"
   },
@@ -5832,7 +5832,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "b0b6b3912cb4c79c.jpg",
     "added_at": "2026-07-16T13:46:11.778Z"
   },
@@ -5870,7 +5870,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "44c7b00fcd051119.jpg",
     "added_at": "2026-07-16T23:09:26.006Z"
   },
@@ -5889,7 +5889,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "5d826dbba752814b.jpg",
     "added_at": "2026-07-16T13:39:48.344Z"
   },
@@ -5908,7 +5908,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "fbf31b8ffc101281.jpg",
     "added_at": "2026-07-16T22:34:56.905Z"
   },
@@ -5927,7 +5927,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "e4970930a85e5eb4.jpg",
     "added_at": "2026-07-16T00:44:00.781Z"
   },
@@ -5946,7 +5946,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "cdaac7c2d6c9c5cf.jpg",
     "added_at": "2026-07-17T14:11:10.239Z"
   },
@@ -5984,7 +5984,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "b7d77b7b8f2cfc26.jpg",
     "added_at": "2026-07-16T11:45:32.893Z"
   },
@@ -6003,7 +6003,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "a541d60b2bc30173.jpg",
     "added_at": "2026-07-16T23:13:13.015Z"
   },
@@ -6022,7 +6022,7 @@
     "watched": false,
     "last_watched": null,
     "watches": [],
-    "rounded": false,
+    "rounded": true,
     "cover": "d518effd578b35ed.jpg",
     "added_at": "2026-07-16T21:33:17.158Z"
   },
